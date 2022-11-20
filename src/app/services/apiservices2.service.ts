@@ -9,6 +9,8 @@ import { AlertController } from '@ionic/angular';
 })
 export class Apiservices2Service {
 
+  public users = [];
+
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -20,29 +22,49 @@ export class Apiservices2Service {
   apiURL2 ='https://my-json-server.typicode.com/victorrosendo/repoListadoAutos';
   // Se declara la variable http de tipo HttpClient
 
-  constructor(private http:HttpClient, private alertController:AlertController) { }
+  constructor(private http:HttpClient) { }
 
 
   getUsuarios():Observable<any>{
-    this.presentAlert("Entra al json");
+
     return this.http.get(this.apiURL+'/users/').pipe(
       retry(3)
     );
   }
   getautos():Observable<any>{
-    this.presentAlert("Entra al json");
+
     return this.http.get(this.apiURL2+'/autos/').pipe(
       retry(3)
     );
   }
 
-
-  async presentAlert(msj: string) {
-    const alert = await this.alertController.create({
-      message: msj,
-      buttons: ['OK'],
-    });
-  
-    await alert.present();
+  public getUsers(): void {
+    this.getUsersFromApi().subscribe(
+      (users) => (this.users = users),
+      (error) => (this.users = undefined)
+    );
   }
+
+  private getUsersFromApi(): Observable<any> {
+    return this.http.get(this.apiURL);
+  }
+
+  public getUsers2(): void {
+    this.getUsersFromApi2().subscribe(
+      (users) => (this.users = users),
+      (error) => (this.users = undefined)
+    );
+  }
+
+  private getUsersFromApi2(): Observable<any> {
+    return this.http.get(this.apiURL2);
+  }
+
+  // async presentAlert(msj: string) {
+  //   const alert = await this.alertController.create({
+  //     message: msj,
+  //     buttons: ['OK'],
+  //   });
+  //   await alert.present();
+  // }
 }

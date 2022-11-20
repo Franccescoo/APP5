@@ -1,3 +1,4 @@
+
 import { HttpClientModule } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
@@ -16,18 +17,15 @@ import { CameraService } from './camera.service';
 describe('CameraService', () => {
   let service: CameraService;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [IonicModule.forRoot(),],
-      providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, SQLite, Camera, Geolocation, NativeStorage,Storage],
-      schemas: [NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA],
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
       declarations: [ CameraService ],
-    });
-    service = TestBed.inject(CameraService);
-  });
+      imports: [IonicModule.forRoot()],
+    }).compileComponents();
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+  }));
+
+  it('should create', () => {
+
   });
 });
-
