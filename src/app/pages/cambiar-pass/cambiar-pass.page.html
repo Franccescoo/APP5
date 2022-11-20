@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>Nueva Contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item fill="solid">
+    <ion-label position="floating">Ingrese su nueva Contraseña:</ion-label>
+    <ion-input [(ngModel)]="clavemod"></ion-input>
+    <ion-note slot="helper">Contraseña</ion-note>
+  </ion-item>
+  
+  <ion-item fill="solid" style="margin-top: 20px;">
+    <ion-label position="floating">Repita su Contraseña:</ion-label>
+    <ion-input [(ngModel)]="clavemod2"></ion-input>
+    <ion-note slot="helper">Contraseña</ion-note>
+  </ion-item>
+  
+  <ion-button style="margin-top: 40px;"color="success"expand="full" (click)="modificarclave()">MODIFICAR</ion-button>
+
+</ion-content>

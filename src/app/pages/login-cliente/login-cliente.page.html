@@ -1,0 +1,34 @@
+
+<ion-content class="ion-padding ion-text-center">
+
+  <ion-text>
+    <h1 style="padding-top: 100px; font-weight: 600; font-size: 35px;">Bienvenido</h1>
+    <ion-card-subtitle style="margin-bottom: 30px; font-size: 10px;">Ingresa para continuar</ion-card-subtitle>
+  </ion-text>
+
+  <ion-grid>
+    <ion-row style="border: black 2px solid; border-radius: 20px;">
+      <ion-col size="2"><ion-icon style="text-align: center; padding-top: 7px; padding-left: 10px; font-size: 25px;" name="mail-outline"></ion-icon></ion-col>
+      <ion-col size="10"><ion-input [(ngModel)]="ingreso.nombre" id="user"type="text" placeholder="Nombre" style="float: left; border-left: black 1px solid;"></ion-input></ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row style="border: black 2px solid; border-radius: 20px;">
+      <ion-col size="2"><ion-icon style="text-align: center; padding-top: 7px; padding-left: 10px; font-size: 25px;" name="lock-closed-outline"></ion-icon></ion-col>
+      <ion-col size="10"><ion-input [(ngModel)]="ingreso.clave" id="clave" type="password" placeholder="Contraseña" style="float: left; border-left: black 1px solid;"></ion-input></ion-col>
+    </ion-row>
+  </ion-grid>  
+
+
+
+  <ion-button  color="success" style="
+  margin-top: 10px; 
+  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Fascinate&family=IBM+Plex+Mono:wght@500&family=Inconsolata:wght@200&family=Pacifico&family=Poppins:ital@1&display=swap');
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 500;" (click)="iniciarSesion()" expand="full" >INGRESAR</ion-button>
+
+
+  <a [routerLink]="['/recuperar-pass-cliente']" style="font-size: 12px; color:#20ad58; text-decoration: none;">Has olvidado tu contraseña ?</a><br>
+  <a [routerLink]="['/login-conductor']" style="font-size: 12px; color:#20ad58; text-decoration: none;">Inicia sesión aquí como conductor</a> 
+</ion-content>

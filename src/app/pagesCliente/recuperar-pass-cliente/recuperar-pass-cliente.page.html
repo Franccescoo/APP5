@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Restaurar contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding ion-text-center">
+
+  <ion-text>
+    <h1 style="padding-top: 100px; font-weight: 600; font-size: 22px;">Restaurar contraseña</h1>
+    <ion-card-subtitle style="margin-bottom: 30px; font-size: 15 px;">Se enviará un correo electrónico para restablecer la contraseña</ion-card-subtitle>
+  </ion-text>
+
+  <form style=" padding-bottom: 10px;  padding: 3px 10px;
+  border: rgb(113, 230, 119) 10px double;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;" class="example-form">
+    <mat-form-field style="color: black;" class="example-full-width" appearance="fill">
+      <mat-label style="color: black;">Email:</mat-label>
+      <input style="color: black;" type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+             placeholder="Ex. pat@example.com">
+      <mat-hint ></mat-hint>
+      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')" style="color: black;">
+        Correo electrónico inválido
+      </mat-error>
+      <mat-error style="color: black;" *ngIf="emailFormControl.hasError('required')">
+        Email es <strong style="color: black;">Obligatorio</strong>
+      </mat-error>
+    </mat-form-field>
+  </form>
+
+  <ion-button  color="success" style="
+  margin-top: 10px; 
+  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Fascinate&family=IBM+Plex+Mono:wght@500&family=Inconsolata:wght@200&family=Pacifico&family=Poppins:ital@1&display=swap');
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 500;" (click)="presentToast()" expand="full" >Enviar Correo</ion-button>
+
+
+</ion-content>

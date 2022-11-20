@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>Viajes Disponible</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-accordion-group>
+
+    <ion-accordion value="first">
+      <ion-item slot="header">
+        <ion-label>Victor Rosendo</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        Desde : Mall Plaza Norte<br>
+        Hasta : Mall Plaza de Quilicura<br>
+        Vehiculo : 4 puertas<br>
+        Patente : YXS13512<br>
+        Costo : $5.000<br>
+        <ion-button (click)="presentAlert()" (click)="click()">Tomar Viaje</ion-button>
+      </div>
+    </ion-accordion>
+
+
+  </ion-accordion-group>
+</ion-content>

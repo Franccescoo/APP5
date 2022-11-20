@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>Confirmar Contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item fill="solid">
+    <ion-label position="floating">Ingrese su actual Contraseña:</ion-label>
+    <ion-input [(ngModel)]="actual"></ion-input>
+    <ion-note slot="helper">Contraseña</ion-note>
+  </ion-item>
+
+  <ion-button style="margin-top: 10px;"color="success"expand="full" (click)="ConfirmarPass()">ENTRAR</ion-button>
+
+</ion-content>

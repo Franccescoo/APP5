@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>Inicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+  <img src="./assets/img/MIAUto.jpg"/>
+  <ion-card-header>
+    <ion-card-subtitle>MiAuto</ion-card-subtitle>
+    <ion-card-title>Para universidades e institutos</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    Aplicación que permite a los alumnos organizarse a través de la App para que puedan retornar a sus hogares utilizando vehículos de algunos alumnos que si tienen movilización propia.
+  </ion-card-content>
+</ion-card>
+
+  <ion-button [routerLink]="['/historial-viajes']" style="margin-top: 20px;"color="success"expand="full">Crear viaje</ion-button>
+  
+  <ion-button (click)="verauto()" style="margin-top: 20px;"color="success"expand="full">Ver autos</ion-button>
+
+
+  <!-- <ion-button [routerLink]="['/solicitud-viaje']" style="margin-top: 20px;"color="success"expand="full">Solicitudes de Viajes</ion-button> -->
+
+</ion-content>

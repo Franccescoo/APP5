@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>Ver Auto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-list *ngFor="let x of Auto">
+    <ion-list *ngIf="x.fk_id_usuario == idrolextras">
+
+      <ion-item>
+        <ion-label>{{ x.patente }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{ x.marca }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{ x.fk_id_usuario }}</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-list>
+
+</ion-content>

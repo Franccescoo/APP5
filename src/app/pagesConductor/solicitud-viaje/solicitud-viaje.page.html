@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>Solicitudes Disponibles</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-accordion-group>
+    <ion-accordion value="first">
+      <ion-item slot="header">
+        <ion-label>Victor Peñaloza</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        Desde : DuocUC Plaza Norte<br>
+        Hasta : Mall Plaza de Quilicura<br>
+        Acompañantes : Ninguno<br>
+        Celular : 979066489<br>
+        <ion-button (click)="presentAlert()" [routerLink]="['/codigo-qr']">Aceptar Viaje ?</ion-button>
+      </div>
+    </ion-accordion>
+    <ion-accordion value="second">
+      <ion-item slot="header">
+        <ion-label>David Carvajal</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        Desde : DuocUC Plaza Norte<br>
+        Hasta : Mall Plaza de Quilicura<br>
+        Acompañantes : 2 Personas<br>
+        Celular : 974422165<br>
+        <ion-button (click)="presentAlert()" [routerLink]="['/codigo-qr']">Aceptar Viaje ?</ion-button>
+      </div>
+    </ion-accordion>
+    <ion-accordion value="third">
+      <ion-item slot="header">
+        <ion-label>Franccesco Artuso</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        Desde : DuocUC Plaza Norte<br>
+        Hasta : Mall Plaza de Quilicura<br>
+        Acompañantes : 1 Persona<br>
+        Celular : 963244565<br>
+        <ion-button (click)="presentAlert()" [routerLink]="['/codigo-qr']" >Aceptar Viaje ?</ion-button>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+</ion-content>
+
+<mat-paginator [length]="100"
+[pageSize]="10"
+[pageSizeOptions]="[5, 10, 25, 100]"
+aria-label="Select page"
+style="background-color: #2dd36f;color: black;">
+</mat-paginator>
