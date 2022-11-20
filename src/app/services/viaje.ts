@@ -1,7 +1,8 @@
 export class Viaje {
-    idViaje: number;
-    fechaViaje: string;
-    horaSalida: number;
-    asientos: number;
-    monto: number;
+    idviaje: number;
+    nombre: string;
+    patente: string;
+    marca: string;
+    comuna: string;
+    costo: number;
 }
