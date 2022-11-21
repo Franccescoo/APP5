@@ -9,7 +9,11 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./solicitud-viaje.page.scss'],
 })
 export class SolicitudViajePage implements OnInit {
-  
+
+  buena = 'Quilicura';
+  buena2 = 'Las Condes'
+  buena3 = 'Independencia'
+
   Desde= 'Mall Plaza Norte';
   nombreV='';
   patenteV='';

@@ -40,7 +40,6 @@ export class LoginClientePage implements OnInit {
       this.Usuario = res;
       console.log(res)
       for (let x of this.Usuario) {
-        this.bd.presentAlert(x.nombre);
         this.bd.agregarUsuario(x.id, x.nombre, x.clave, x.id_rol);
       }
     })
@@ -48,7 +47,6 @@ export class LoginClientePage implements OnInit {
     this.api.getautos().subscribe((res)=>{
       this.Auto = res;
       for (let x of this.Auto){
-        this.bd.presentAlert(x.patente);
         this.bd.agregarAuto(x.patente,x.id_usuario,x.marca);
       }
     })

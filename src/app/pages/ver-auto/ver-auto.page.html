@@ -1,25 +1,28 @@
 <ion-header>
   <ion-toolbar color="success">
-    <ion-title>Ver Auto</ion-title>
+    <ion-title>Ver tus Autos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
-
   <ion-list *ngFor="let x of Auto">
-    <ion-list *ngIf="x.fk_id_usuario == idrolextras">
-
+  <ion-card color="success">
+    <ion-card-header>
+      <ion-card-subtitle>Marca del Vehiculo: {{ x.marca }}</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Patente del Vehiculo: {{ x.patente }}
+    </ion-card-content>
+  </ion-card>
+</ion-list>
+  <!-- <ion-list *ngFor="let x of Auto">
       <ion-item>
         <ion-label>{{ x.patente }}</ion-label>
       </ion-item>
       <ion-item>
         <ion-label>{{ x.marca }}</ion-label>
       </ion-item>
-      <ion-item>
-        <ion-label>{{ x.fk_id_usuario }}</ion-label>
-      </ion-item>
-    </ion-list>
-  </ion-list>
+  </ion-list> -->
 
 </ion-content>

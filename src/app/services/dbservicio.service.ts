@@ -211,7 +211,6 @@ export class DbservicioService {
     let data =[nombre,patente,destino,monto];
     return this.database.executeSql('INSERT or IGNORE INTO viaje(nombre,patente,comuna,costo) VALUES (?,?,?,?)',data).then(res=>{
       this.buscarViaje();
-      this.presentAlert("agregado viaje")
     })
 
   }
@@ -276,7 +275,6 @@ export class DbservicioService {
     let data = [patente, fk_id_usuario,marca ];
     return this.database.executeSql('INSERT or IGNORE INTO auto (  patente , fk_id_usuario, marca) VALUES (? , ? , ?)', data).then(res => {
       this.buscarAuto();
-      this.presentAlert("auto guardado")
     });
   }
   updateAuto(patente, modelo, marca, puestos, fk_idusuario) {

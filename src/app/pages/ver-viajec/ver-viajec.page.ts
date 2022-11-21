@@ -69,4 +69,9 @@ export class VerViajecPage implements OnInit {
 
   }
 
+  tomarV(){
+    this.bd.presentAlert("El viaje a empezado!!")
+    this.router.navigate(['/viajeencurso']);
+  }
+
 }

@@ -9,6 +9,7 @@
 
 <ion-content>
 
+  <div *ngIf="comunaV == buena">
   <ion-accordion-group>
     <ion-accordion value="first">
       <ion-item slot="header">
@@ -23,6 +24,41 @@
       </div>
     </ion-accordion>
   </ion-accordion-group>
+  </div>
+
+  <div *ngIf="comunaV == buena2">
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header">
+          <ion-label>Nombre: {{nombreV}}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          Desde : {{ Desde}}<br>
+          Hasta : {{comunaV}}<br>
+          Patente : {{patenteV}}<br>
+          Costo : ${{ costoV }}<br>
+          <ion-button (click)="presentAlert()" (click)="click()">Tomar Viaje</ion-button>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+    </div>
+    
+    <div *ngIf="comunaV == buena3">
+      <ion-accordion-group>
+        <ion-accordion value="first">
+          <ion-item slot="header">
+            <ion-label>Nombre: {{nombreV}}</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            Desde : {{ Desde}}<br>
+            Hasta : {{comunaV}}<br>
+            Patente : {{patenteV}}<br>
+            Costo : ${{ costoV }}<br>
+            <ion-button (click)="presentAlert()" (click)="click()">Tomar Viaje</ion-button>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+      </div>
 
   <!-- <ion-accordion-group>
     <ion-accordion value="first">

@@ -65,4 +65,57 @@ describe('Apiservices2Service', () => {
       expect(httpClientSpy.get.calls.count()).toBe(1, 'una llamada');
     });
 
+    //PRUEBA UNITARIA AUTOS
+    it('Deberia devolver los AUTOS esperados de LARGO 2', () => {
+      const expectedUsers = [
+        { id: 1, nombre: 'A' },
+        { id: 2, nombre: 'B' }
+      ];
+  
+      httpClientSpy.get.and.returnValue(of(expectedUsers));
+  
+      service.getUsers();
+  
+      expect(service.users.length).toBe(2);
+    });
+
+        //PRUEBA UNITARIA USUARIOS
+        it('Deberia devolver los USUARIOS esperados de LARGO 2', () => {
+          const expectedUsers = [
+            { id: 1, nombre: 'A' },
+            { id: 2, nombre: 'B' }
+          ];
+      
+          httpClientSpy.get.and.returnValue(of(expectedUsers));
+      
+          service.getUsers();
+      
+          expect(service.users.length).toBe(2);
+        });
+
+            //PRUEBA UNITARIA AUTOS
+    it('Deberia devolver los AUTOS esperados con el PRIMER VALOR "A"', () => {
+      const expectedUsers = [
+        { id: 1, nombre: 'A' },
+        { id: 2, nombre: 'B' }
+      ];
+  
+      httpClientSpy.get.and.returnValue(of(expectedUsers));
+  
+      service.getUsers();
+  
+      expect(service.users[0]['nombre']).toBe('A');
+    });
+
+    //PRUEBA UNITARIA USUARIOS
+  it('Deberia devolver los USUARIOS esperados con el SEGUNDO VALOR "B"', () => {
+    const expectedUsers = [
+      { id: 1, nombre: 'A' },
+      { id: 2, nombre: 'B' }
+    ];
+    httpClientSpy.get.and.returnValue(of(expectedUsers));
+    service.getUsers();
+    expect(service.users[1]['nombre']).toBe('B');
+  });
+
 });

@@ -11,7 +11,7 @@ import { DbservicioService } from 'src/app/services/dbservicio.service';
   styleUrls: ['./modificar-cliente.page.scss'],
 })
 export class ModificarClientePage implements OnInit {
-  fotocon: any;
+  fotocon2: any;
 
   nombremod = '';
 
@@ -54,7 +54,7 @@ export class ModificarClientePage implements OnInit {
 
   ngOnInit() {
     this.api.getfoto().subscribe(item => {
-      this.fotocon = item;
+      this.fotocon2 = item;
     })
     this.bd.dbState().subscribe((res) => {
       if (res) {

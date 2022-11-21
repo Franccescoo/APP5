@@ -74,8 +74,8 @@ longitude;
       mapEle.classList.add('show-map');
       const market = {
         position: {
-          lat: this.latitude,
-          lng:  this.longitude
+          lat: -33.36326318588252,
+          lng:  -70.67801166481883
         },
         title: 'Tu Ubicación'
       };

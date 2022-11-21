@@ -93,7 +93,7 @@ crearviaje(){
   }
   this.bd.agregarviaje(this.nombreextras,this.comun,this.tarifa,this.radioSelected)
   this.bd.presentAlert("Viaje creado")
-  this.router.navigate(['/inicio-conductor'],navigationExtras)
+  this.router.navigate(['/viajeencurso'],navigationExtras)
 }
 
 Volver(){
