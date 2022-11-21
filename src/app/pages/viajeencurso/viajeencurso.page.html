@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>viajeencurso</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div  *ngIf="comunaV == null">
+      <h3>NO HAY VIAJES</h3>
+  <div  *ngIf="comunaV == not null">
+      <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>Nombre:</ion-card-subtitle>
+            <ion-card-title>{{ nombreV }}</ion-card-title>
+          </ion-card-header>
+        
+          <ion-card-content>
+            Desde : {{ Desde }}<br>
+            Hasta : {{comunaV}}<br>
+            Patente : {{patenteV}}<br>
+            Costo : ${{ costoV }}<br>
+          </ion-card-content>
+          <ion-item>
+            <mat-icon slot="start">cancel</mat-icon>
+            <ion-label>Finalizar Viaje</ion-label>
+            <ion-button fill="outline" slot="end" color="success" (click)="FinalizarV()">Finalizar</ion-button>
+          </ion-item>
+          <ion-item>
+            <mat-icon slot="start">cancel</mat-icon>
+            <ion-label>Cancelar Viaje</ion-label>
+            <ion-button fill="outline" slot="end" color="danger" (click)="CancelarV()">Cancelar</ion-button>
+          </ion-item>
+        
+        </ion-card>
+  </div>
+</div>
+  
+
+</ion-content>

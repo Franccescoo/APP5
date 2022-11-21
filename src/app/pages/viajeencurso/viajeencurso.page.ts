@@ -2,16 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
 import { AlertController } from '@ionic/angular';
-
 @Component({
-  selector: 'app-solicitud-viaje',
-  templateUrl: './solicitud-viaje.page.html',
-  styleUrls: ['./solicitud-viaje.page.scss'],
+  selector: 'app-viajeencurso',
+  templateUrl: './viajeencurso.page.html',
+  styleUrls: ['./viajeencurso.page.scss'],
 })
-export class SolicitudViajePage implements OnInit {
+export class ViajeencursoPage implements OnInit {
   
   Desde= 'Mall Plaza Norte';
-  nombreV='';
+  nombreV= '';
   patenteV='';
   comunaV='';
   costoV='';
@@ -32,6 +31,7 @@ export class SolicitudViajePage implements OnInit {
       this.nombreV = data
     })
   }
+
 
   GetPatente() {
     this.nativeStorage.getItem('patenteViaje').then((data2)=>{
@@ -54,24 +54,35 @@ export class SolicitudViajePage implements OnInit {
     })
   }
 
-  async presentAlert() {
+
+  async presentAlert1() {
     const alert = await this.alertController.create({
-      header: 'Viaje Tomado',
-      subHeader: 'Espera al conductor',
-      buttons: ['Listo'],
+      header: 'Viaje Finalizado',
+      message: '¡Conduce con cuidado!',
+      buttons: ['OK'],
     });
 
     await alert.present();
   }
 
-  async presentAlert1(msj: string) {
+  async presentAlert2() {
     const alert = await this.alertController.create({
-      header: 'Alert',
-      message: msj,
+      header: 'Viaje Cancelado!',
+      message: '¡Puedes crear otro viaje!',
       buttons: ['OK'],
     });
 
     await alert.present();
+  }
+
+  FinalizarV(){
+    this.presentAlert2();
+    this.route.navigate(['/crear-viaje']);
+  }
+
+  CancelarV(){
+    this.presentAlert1();
+    this.route.navigate(['/crear-viaje']);
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import { Camera } from '@awesome-cordova-plugins/camera/ngx';
 import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
 import { CameraService } from 'src/app/services/camera.service';
 import { DbservicioService } from 'src/app/services/dbservicio.service';
@@ -11,7 +12,7 @@ import { DbservicioService } from 'src/app/services/dbservicio.service';
 })
 export class ModificarConductorPage implements OnInit {
   fotocon: any;
-
+  base64Image: any;
   nombremod = '';
 
   clavemod = '';
@@ -30,7 +31,7 @@ export class ModificarConductorPage implements OnInit {
   Usuario: any[] = []
   id1 = ''
 
-  constructor(private bd: DbservicioService, private api: CameraService, public nativeStorage: NativeStorage, private router: Router, private activedRouter: ActivatedRoute) {
+  constructor(private camera: Camera,private bd: DbservicioService, private api: CameraService, public nativeStorage: NativeStorage, private router: Router, private activedRouter: ActivatedRoute) {
     this.activedRouter.queryParams.subscribe(param => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.idextras = this.router.getCurrentNavigation().extras.state.idenviado;
@@ -53,7 +54,7 @@ export class ModificarConductorPage implements OnInit {
 
   ngOnInit() {
     this.api.getfoto().subscribe(item => {
-      this.fotocon = item;
+      this.base64Image = item;
     })
     this.bd.dbState().subscribe((res) => {
       if (res) {
@@ -114,5 +115,24 @@ export class ModificarConductorPage implements OnInit {
       else {
         this.bd.presentAlert("Debe ingresar un texto")
       }
+    }
+
+    sacarfoto(){
+      this.camera.getPicture({
+        destinationType: this.camera.DestinationType.DATA_URL,
+        sourceType: this.camera.PictureSourceType.CAMERA,
+        mediaType: this.camera.MediaType.PICTURE,
+        allowEdit: false,
+        encodingType: this.camera.EncodingType.JPEG,
+        targetHeight: 400,
+        targetWidth: 400,
+        correctOrientation: true,
+        saveToPhotoAlbum: true
+      }).then(resultado => {
+        this.base64Image = "data:image/jpeg;base64," + resultado;
+      }).catch(error => {
+        console.log(error);
+      })
+  
     }
     }

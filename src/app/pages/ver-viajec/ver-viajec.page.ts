@@ -10,23 +10,32 @@ import { DbservicioService } from 'src/app/services/dbservicio.service';
 })
 export class VerViajecPage implements OnInit {
 
-
-  idviajeextra='';
-  nombreviajeextra='';
-  patenteextra='';
-  comunaextra='';
-  costoextra='';
+  nombreV='';
+  patenteV='';
+  comunaV='';
+  costoV='';
+  
   Usuario: any[] = []
+
   Auto: any[] = []
+
   Viaje: any[] = []
+
+  listaViaje: any = [
+    {
+      nombre: '',
+      patente: '',
+      comuna: '',
+      costo: ''
+    }
+  ]
   constructor(private activedRouter: ActivatedRoute, private bd: DbservicioService, private api: CameraService, public nativeStorage: NativeStorage, private router: Router) {
     this.activedRouter.queryParams.subscribe(param=>{
       if(this.router.getCurrentNavigation().extras.state){
-        this.idviajeextra = this.router.getCurrentNavigation().extras.state.idviajeenviado;
-        this.nombreviajeextra = this.router.getCurrentNavigation().extras.state.nombreviajeenviado;
-        this.patenteextra = this.router.getCurrentNavigation().extras.state.patenteenviado;
-        this.comunaextra = this.router.getCurrentNavigation().extras.state.comunaenviado;
-        this.costoextra = this.router.getCurrentNavigation().extras.state.costoenviado;
+        this.nombreV = this.router.getCurrentNavigation().extras.state.nombreenviadov;
+        this.patenteV = this.router.getCurrentNavigation().extras.state.patenteenviadov;
+        this.comunaV = this.router.getCurrentNavigation().extras.state.comunaenviadov;
+        this.costoV = this.router.getCurrentNavigation().extras.state.costoenviadov;
       }
     })
    }
@@ -40,6 +49,7 @@ export class VerViajecPage implements OnInit {
         })
       }
     })
+
     this.bd.dbState().subscribe((res) => {
       if (res) {
         this.bd.fetchauto().subscribe(item => {
@@ -47,10 +57,11 @@ export class VerViajecPage implements OnInit {
         })
       }
     })
+
     this.bd.dbState().subscribe((res) => {
       if (res) {
         this.bd.fetchViaje().subscribe(item => {
-          this.Viaje = item;
+          this.listaViaje = item;
         })
       }
     })

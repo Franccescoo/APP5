@@ -39,9 +39,6 @@ export class InicioClientePage implements OnInit {
         this.idrolextras = this.router.getCurrentNavigation().extras.state.idrolenviado;
       }
     })
-    this.guardarid()
-    this.guardarnombre()
-    this.guardaridrol()
   }
 
   ngOnInit() {
@@ -60,30 +57,6 @@ export class InicioClientePage implements OnInit {
   }
 
 
-  guardarid() {
-    this.nativeStorage.getItem('id').then((data) => {
-      this.id = data
-    })
-    
-  }
-  guardarnombre() {
-    this.nativeStorage.getItem('nombre').then((data2) => {
-      this.nombre = data2
-    })
-  }
-
-  guardarclave() {
-    this.nativeStorage.getItem('clave').then((data3) => {
-      this.clave = data3
-    })
-  }
-
-
-  guardaridrol() {
-    this.nativeStorage.getItem('idrol').then((data4) => {
-      this.idrol = data4
-    })
-  }
 
   AbrirCamara() {
     this.api.TakePicture();
@@ -91,8 +64,9 @@ export class InicioClientePage implements OnInit {
 
 
   verviaje(){
-    
+    this.router.navigate(['/solicitud-viaje']);
   }
+
   irPefil(){
     let navigationExtras: NavigationExtras = {
       state: {
@@ -106,4 +80,6 @@ export class InicioClientePage implements OnInit {
     this.router.navigate(['/perfilcliente'],navigationExtras);
 
   }
+
+
 }

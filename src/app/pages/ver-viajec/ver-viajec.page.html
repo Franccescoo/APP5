@@ -3,22 +3,49 @@
     <ion-title>Ver Viaje</ion-title>
   </ion-toolbar>
 </ion-header>
+
 <ion-content>
 
-  <ion-list *ngFor="let x of Viaje">
-    <ion-list *ngIf="x.idviaje == idviajeextra">
-      <ion-item >
+<h2>VER VIAJES DISPONIBLES</h2>
+  <!-- <ion-list>
+
+    <div  *ngFor="let x of listaViaje" >
+        <ion-item >
         <ion-label >{{ x.nombre }}</ion-label>
       </ion-item>
+
       <ion-item >
-        <ion-label >{{ x.patente }}</ion-label>
+        <ion-label ></ion-label>
       </ion-item>
+
       <ion-item>
         <ion-label >{{ x.comuna }}</ion-label>
       </ion-item>
+
       <ion-item>
         <ion-label >{{ x.costo }}</ion-label>
       </ion-item>
-    </ion-list>
-  </ion-list>
+    </div> -->
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header">
+          <ion-label>Nombre: {{nombreV}}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          Desde : Mall Plaza Norte<br>
+          Hasta : {{comunaV}}<br>
+          Patente : {{patenteV}}<br>
+          Costo : ${{ costoV }}<br>
+          <ion-button (click)="presentAlert()" (click)="click()">Tomar Viaje</ion-button>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+    <!-- <h2>Nombre: {{nombreV}}</h2>
+    <h2>Patente: {{patenteV}}</h2>
+    <h2>Comuna de Destino: {{comunaV}}</h2>
+    <h2>Tarifa del Viaje: ${{ costoV }}</h2>
+     -->
+
+  <!-- </ion-list> -->
+
 </ion-content>

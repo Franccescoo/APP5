@@ -8,6 +8,7 @@ import { SolicitudViajePageRoutingModule } from './solicitud-viaje-routing.modul
 
 import { SolicitudViajePage } from './solicitud-viaje.page';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     FormsModule,
     IonicModule,
     SolicitudViajePageRoutingModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatIconModule
   ],
   declarations: [SolicitudViajePage]
 })

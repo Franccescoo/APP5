@@ -18,6 +18,11 @@ export class AppComponent implements OnInit{
   fotoextras='';
   idrolextras='';
 
+  nombreV='';
+  patenteV='';
+  comunaV='';
+  costoV='';
+
   Usuario: any[] = []
 
   constructor(private activedRouter: ActivatedRoute,public nativeStorage: NativeStorage,private bd: DbservicioService,private router: Router) {
@@ -28,6 +33,11 @@ export class AppComponent implements OnInit{
         this.claveextras = this.router.getCurrentNavigation().extras.state.claveenviado;
         this.fotoextras = this.router.getCurrentNavigation().extras.state.fotoenviado;
         this.idrolextras = this.router.getCurrentNavigation().extras.state.idrolenviado;
+
+        this.nombreV = this.router.getCurrentNavigation().extras.state.nombreenviadov;
+        this.patenteV = this.router.getCurrentNavigation().extras.state.patenteenviadov;
+        this.comunaV = this.router.getCurrentNavigation().extras.state.comunaenviadov;
+        this.costoV = this.router.getCurrentNavigation().extras.state.costoenviadov;
       }
     })
 
@@ -99,6 +109,10 @@ export class AppComponent implements OnInit{
       }
 
     }
+  }
+
+  salir(){
+    this.router.navigate(['/login-cliente'])
   }
 
 }

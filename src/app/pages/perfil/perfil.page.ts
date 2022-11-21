@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import { Camera } from '@awesome-cordova-plugins/camera/ngx';
 import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
 import { CameraService } from 'src/app/services/camera.service';
 import { DbservicioService } from 'src/app/services/dbservicio.service';
@@ -11,7 +12,7 @@ import { DbservicioService } from 'src/app/services/dbservicio.service';
 })
 export class PerfilPage implements OnInit {
   fotocon: any;
-
+  base64Image: any;
   idextras='';
   nombreextras='';
   claveextras='';
@@ -27,7 +28,7 @@ export class PerfilPage implements OnInit {
   idrol = '';
 
 
-  constructor(private activedRouter: ActivatedRoute,private bd: DbservicioService, private api: CameraService, public nativeStorage: NativeStorage, private router: Router) {
+  constructor(private camera: Camera,private activedRouter: ActivatedRoute,private bd: DbservicioService, private api: CameraService, public nativeStorage: NativeStorage, private router: Router) {
     this.activedRouter.queryParams.subscribe(param=>{
       if(this.router.getCurrentNavigation().extras.state){
         this.idextras = this.router.getCurrentNavigation().extras.state.idenviado;
@@ -113,5 +114,42 @@ export class PerfilPage implements OnInit {
       }
     }
     this.router.navigate(['/confirmar-pass'], navigationExtras);
+  }
+
+  sacarfoto(){
+    this.camera.getPicture({
+      destinationType: this.camera.DestinationType.DATA_URL,
+      sourceType: this.camera.PictureSourceType.CAMERA,
+      mediaType: this.camera.MediaType.PICTURE,
+      allowEdit: false,
+      encodingType: this.camera.EncodingType.JPEG,
+      targetHeight: 400,
+      targetWidth: 400,
+      correctOrientation: true,
+      saveToPhotoAlbum: true
+    }).then(resultado => {
+      this.base64Image = "data:image/jpeg;base64," + resultado;
+    }).catch(error => {
+      console.log(error);
+    })
+  }
+
+  galeria(){
+    this.camera.getPicture({
+        destinationType: this.camera.DestinationType.DATA_URL,
+        sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+        mediaType: this.camera.MediaType.PICTURE,
+        allowEdit: false,
+        encodingType: this.camera.EncodingType.JPEG,
+        targetHeight: 400,
+        targetWidth: 400,
+        correctOrientation: true,
+        saveToPhotoAlbum: true
+      }).then(resultado => {
+        this.base64Image = "data:image/jpeg;base64," + resultado;
+      }).catch(error => {
+        console.log(error);
+      })
+
   }
 }

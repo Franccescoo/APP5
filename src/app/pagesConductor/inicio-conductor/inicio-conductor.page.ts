@@ -24,6 +24,11 @@ export class InicioConductorPage implements OnInit {
   fkextras='';
   marcaextras='';
 
+  nombreV='';
+  patenteV='';
+  comunaV='';
+  costoV='';
+
   id = '';
   nombre = '';
   clave = '';
@@ -42,6 +47,11 @@ export class InicioConductorPage implements OnInit {
         this.patentextras = this.router.getCurrentNavigation().extras.state.patenteenviado;
         this.fkextras = this.router.getCurrentNavigation().extras.state.fkenviado;
         this.marcaextras = this.router.getCurrentNavigation().extras.state.marcaenviado;
+
+        this.nombreV = this.router.getCurrentNavigation().extras.state.nombreenviadov;
+        this.patenteV = this.router.getCurrentNavigation().extras.state.patenteenviadov;
+        this.comunaV = this.router.getCurrentNavigation().extras.state.comunaenviadov;
+        this.costoV = this.router.getCurrentNavigation().extras.state.costoenviadov;
       }
     })
     
@@ -136,17 +146,16 @@ export class InicioConductorPage implements OnInit {
     }
     this.router.navigate(['/crear-viaje'], navigationExtras);
   }
+
   verviaje(){
-    let navigationExtras: NavigationExtras ={
+    let navigationExtras: NavigationExtras = {
       state: {
-        idviajeenviado: this.Viaje[0].idviaje,
-        nombreviajeenviado : this.Viaje[0].nombre,
-        patenteenviado : this.Viaje[0].patente,
-        comunaenviado: this.Viaje[0].comuna,
-        costoenviado: this.Viaje[0].costo
+        nombreenviadov: this.nombreV,
+        patenteenviadov: this.patenteV,
+        comunaenviadov: this.comunaV,
+        costoenviadov: this.costoV
       }
     }
-    this.router.navigate(['/ver-viajec'], navigationExtras)
-
+    this.router.navigate(['/ver-viajec'],navigationExtras)
   }
 }

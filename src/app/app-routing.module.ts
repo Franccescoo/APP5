@@ -101,7 +101,11 @@ const routes: Routes = [
     path: 'modificar-cliente',
     loadChildren: () => import('./pages/modificar-cliente/modificar-cliente.module').then( m => m.ModificarClientePageModule)
 
+  },  {
+    path: 'viajeencurso',
+    loadChildren: () => import('./pages/viajeencurso/viajeencurso.module').then( m => m.ViajeencursoPageModule)
   }
+
 
 
 ];

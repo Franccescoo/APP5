@@ -8,7 +8,23 @@
 </ion-header>
 
 <ion-content>
+
   <ion-accordion-group>
+    <ion-accordion value="first">
+      <ion-item slot="header">
+        <ion-label>Nombre: {{nombreV}}</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        Desde : {{ Desde}}<br>
+        Hasta : {{comunaV}}<br>
+        Patente : {{patenteV}}<br>
+        Costo : ${{ costoV }}<br>
+        <ion-button (click)="presentAlert()" (click)="click()">Tomar Viaje</ion-button>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+
+  <!-- <ion-accordion-group>
     <ion-accordion value="first">
       <ion-item slot="header">
         <ion-label>Victor Peñaloza</ion-label>
@@ -45,7 +61,7 @@
         <ion-button (click)="presentAlert()" [routerLink]="['/codigo-qr']" >Aceptar Viaje ?</ion-button>
       </div>
     </ion-accordion>
-  </ion-accordion-group>
+  </ion-accordion-group> -->
 </ion-content>
 
 <mat-paginator [length]="100"
