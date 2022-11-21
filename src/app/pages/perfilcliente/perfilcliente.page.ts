@@ -1,33 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
 import { CameraService } from 'src/app/services/camera.service';
 import { DbservicioService } from 'src/app/services/dbservicio.service';
 
 @Component({
-  selector: 'app-inicio-cliente',
-  templateUrl: './inicio-cliente.page.html',
-  styleUrls: ['./inicio-cliente.page.scss'],
+  selector: 'app-perfilcliente',
+  templateUrl: './perfilcliente.page.html',
+  styleUrls: ['./perfilcliente.page.scss'],
 })
-export class InicioClientePage implements OnInit {
+export class PerfilclientePage implements OnInit {
   fotocon: any;
 
-
-  nombremod='';
   idextras='';
   nombreextras='';
   claveextras='';
   fotoextras='';
   idrolextras='';
-  patentextras='';
-  fkextras='';
-  marcaextras='';
+  Usuario: any[] = []
+  
+  nombremod='';
+  id1=''
   id = '';
   nombre = '';
   clave = '';
   idrol = '';
-  Usuario: any[] = []
+
 
   constructor(private activedRouter: ActivatedRoute,private bd: DbservicioService, private api: CameraService, public nativeStorage: NativeStorage, private router: Router) {
     this.activedRouter.queryParams.subscribe(param=>{
@@ -39,15 +37,9 @@ export class InicioClientePage implements OnInit {
         this.idrolextras = this.router.getCurrentNavigation().extras.state.idrolenviado;
       }
     })
-    this.guardarid()
-    this.guardarnombre()
-    this.guardaridrol()
   }
 
   ngOnInit() {
-    this.api.getfoto().subscribe(item => {
-      this.fotocon = item;
-    })
     this.bd.dbState().subscribe((res) => {
       if (res) {
         this.bd.fetchUser().subscribe(item => {
@@ -59,33 +51,35 @@ export class InicioClientePage implements OnInit {
 
   }
 
-
-  guardarid() {
-    this.nativeStorage.getItem('id').then((data) => {
-      this.id = data
-    })
-    
-  }
-  guardarnombre() {
-    this.nativeStorage.getItem('nombre').then((data2) => {
-      this.nombre = data2
-    })
-  }
-
-  guardarclave() {
-    this.nativeStorage.getItem('clave').then((data3) => {
-      this.clave = data3
-    })
-  }
-
-
-  guardaridrol() {
-    this.nativeStorage.getItem('idrol').then((data4) => {
-      this.idrol = data4
-    })
-  }
-
   AbrirCamara() {
     this.api.TakePicture();
   }
+
+  Editar() {
+    let navigationExtras: NavigationExtras = {
+      state: {
+        idenviado: this.Usuario[0].idusuario,
+        nombreenviado: this.Usuario[0].nombre,
+        claveenviado: this.Usuario[0].clave,
+        fotoenviado: this.Usuario[0].foto,
+        idrolenviado: this.Usuario[0].fk_id_rol
+      }
+    }
+    this.router.navigate(['/modificar-conductor'], navigationExtras);
+  }
+
+  EditarPass(){
+    let navigationExtras: NavigationExtras = {
+      state: {
+        idenviado: this.Usuario[0].idusuario,
+        nombreenviado: this.Usuario[0].nombre,
+        claveenviado: this.Usuario[0].clave,
+        fotoenviado: this.Usuario[0].foto,
+        idrolenviado: this.Usuario[0].fk_id_rol
+      }
+    }
+    this.router.navigate(['/confirmar-pass'], navigationExtras);
+  }
+
+
 }

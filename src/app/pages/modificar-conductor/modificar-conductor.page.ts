@@ -114,11 +114,11 @@ export class ModificarConductorPage implements OnInit {
         if (this.nombremod.length != 0 && this.idrolextras == "2"){
           let navigationExtras: NavigationExtras = {
             state: {
-              idenviado: this.Usuario[0].idusuario,
-              nombreenviado: this.Usuario[0].nombre,
-              claveenviado: this.Usuario[0].clave,
-              fotoenviado: this.Usuario[0].foto,
-              idrolenviado: this.Usuario[0].fk_id_rol
+              idenviado: this.idextras,
+              nombreenviado: this.nombreextras,
+              claveenviado: this.claveextras,
+              fotoenviado: this.fotoextras,
+              idrolenviado: this.idrolextras
             }
           }
           this.router.navigate(['/inicio-cliente'],navigationExtras);

@@ -95,7 +95,7 @@ export class AppComponent implements OnInit{
             idrolenviado: this.Usuario[0].fk_id_rol
           }
         }
-        this.router.navigate(['/perfil'],navigationExtras);
+        this.router.navigate(['/perfilcliente'],navigationExtras);
       }
 
     }

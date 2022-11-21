@@ -54,11 +54,9 @@ export class PerfilPage implements OnInit {
       if (res) {
         this.bd.fetchUser().subscribe(item => {
           this.Usuario = item;
-
         })
       }
     })
-
   }
 
 
