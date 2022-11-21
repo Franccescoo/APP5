@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
 import { CameraService } from 'src/app/services/camera.service';
 import { DbservicioService } from 'src/app/services/dbservicio.service';
@@ -14,17 +14,31 @@ export class InicioClientePage implements OnInit {
 
 
   nombremod='';
-
+  idextras='';
+  nombreextras='';
+  claveextras='';
+  fotoextras='';
+  idrolextras='';
+  patentextras='';
+  fkextras='';
+  marcaextras='';
   id = '';
   nombre = '';
   clave = '';
   idrol = '';
   Usuario: any[] = []
 
-  constructor(private bd: DbservicioService, private api: CameraService, public nativeStorage: NativeStorage, private router: Router) {
-    this.nativeStorage.getItem('id').then((data) => {
-      this.id = data
+  constructor(private activedRouter: ActivatedRoute,private bd: DbservicioService, private api: CameraService, public nativeStorage: NativeStorage, private router: Router) {
+    this.activedRouter.queryParams.subscribe(param=>{
+      if(this.router.getCurrentNavigation().extras.state){
+        this.idextras = this.router.getCurrentNavigation().extras.state.idenviado;
+        this.nombreextras = this.router.getCurrentNavigation().extras.state.nombreenviado;
+        this.claveextras = this.router.getCurrentNavigation().extras.state.claveenviado;
+        this.fotoextras = this.router.getCurrentNavigation().extras.state.fotoenviado;
+        this.idrolextras = this.router.getCurrentNavigation().extras.state.idrolenviado;
+      }
     })
+    this.guardarid()
     this.guardarnombre()
     this.guardaridrol()
   }
@@ -46,6 +60,9 @@ export class InicioClientePage implements OnInit {
 
 
   guardarid() {
+    this.nativeStorage.getItem('id').then((data) => {
+      this.id = data
+    })
     
   }
   guardarnombre() {
