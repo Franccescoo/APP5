@@ -109,7 +109,13 @@ export class ModificarConductorPage implements OnInit {
             idrolenviado: this.Usuario[0].fk_id_rol
           }
         }
-        this.router.navigate(['/inicio-conductor'], navigationExtras);
+        if(this.idrolextras ==  '1') {
+          this.router.navigate(['/inicio-conductor'], navigationExtras);
+        }else {
+          this.router.navigate(['/inicio-cliente'], navigationExtras);
+        }
+        
+        
       }
     }
     else {

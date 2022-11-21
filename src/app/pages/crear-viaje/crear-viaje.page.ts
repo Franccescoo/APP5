@@ -5,15 +5,14 @@ import { CameraService } from 'src/app/services/camera.service';
 import { DbservicioService } from 'src/app/services/dbservicio.service';
 
 @Component({
-  selector: 'app-inicio-conductor',
-  templateUrl: './inicio-conductor.page.html',
-  styleUrls: ['./inicio-conductor.page.scss'],
+  selector: 'app-crear-viaje',
+  templateUrl: './crear-viaje.page.html',
+  styleUrls: ['./crear-viaje.page.scss'],
 })
-export class InicioConductorPage implements OnInit {
+export class CrearViajePage implements OnInit {
   fotocon: any;
-
-
-  nombremod='';
+  
+  radioSelected='';
 
   idextras='';
   nombreextras='';
@@ -24,12 +23,9 @@ export class InicioConductorPage implements OnInit {
   fkextras='';
   marcaextras='';
 
-  id = '';
-  nombre = '';
-  clave = '';
-  idrol = '';
   Usuario: any[] = []
   Auto: any[] = []
+
   constructor(private activedRouter: ActivatedRoute,private bd: DbservicioService, private api: CameraService, public nativeStorage: NativeStorage, private router: Router) {
     this.activedRouter.queryParams.subscribe(param=>{
       if(this.router.getCurrentNavigation().extras.state){
@@ -43,13 +39,10 @@ export class InicioConductorPage implements OnInit {
         this.marcaextras = this.router.getCurrentNavigation().extras.state.marcaenviado;
       }
     })
-    
-    this.guardarid()
-    this.guardarnombre()
-    this.guardaridrol()
   }
 
-  ngOnInit() {
+
+ngOnInit() {
     this.api.getfoto().subscribe(item => {
       this.fotocon = item;
     })
@@ -68,66 +61,9 @@ export class InicioConductorPage implements OnInit {
         })
       }
     })
-    
 
-  }
-
-
-  guardarid() {
-    this.nativeStorage.getItem('id').then((data) => {
-      this.id = data
-    })
-    
-  }
-  guardarnombre() {
-    this.nativeStorage.getItem('nombre').then((data2) => {
-      this.nombre = data2
-    })
-  }
-
-  guardarclave() {
-    this.nativeStorage.getItem('clave').then((data3) => {
-      this.clave = data3
-    })
-  }
+}//FINAL ONINIT
 
 
-  guardaridrol() {
-    this.nativeStorage.getItem('idrol').then((data4) => {
-      this.idrol = data4
-    })
-  }
 
-  AbrirCamara() {
-    this.api.TakePicture();
-  }
-
-  verauto(){
-    let navigationExtras: NavigationExtras = {
-      state: {
-        patenteenviado: this.Auto[0].patente,
-        idrolautoenviado: this.Auto[0].fk_id_rol,
-        marcaenviado: this.Usuario[0].marca,
-
-      }
-    }
-    this.router.navigate(['/ver-auto'], navigationExtras);
-  }
-
-  CrearViaje() {
-    let navigationExtras: NavigationExtras = {
-      state: {
-        patenteenviado: this.Auto[0].patente,
-        idrolautoenviado: this.Auto[0].fk_id_rol,
-        marcaenviado: this.Usuario[0].marca,
-        
-        idenviado: this.Usuario[0].idusuario,
-        nombreenviado: this.Usuario[0].nombre,
-        claveenviado: this.Usuario[0].clave,
-        fotoenviado: this.Usuario[0].foto,
-        idrolenviado: this.Usuario[0].fk_id_rol
-      }
-    }
-    this.router.navigate(['/crear-viaje'], navigationExtras);
-  }
-}
+}//FINAL;

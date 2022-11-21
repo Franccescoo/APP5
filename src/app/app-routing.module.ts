@@ -83,6 +83,10 @@ const routes: Routes = [
     path: 'ver-auto',
     loadChildren: () => import('./pages/ver-auto/ver-auto.module').then( m => m.VerAutoPageModule)
   },
+  {
+    path: 'crear-viaje',
+    loadChildren: () => import('./pages/crear-viaje/crear-viaje.module').then( m => m.CrearViajePageModule)
+  },
 
 
 ];
