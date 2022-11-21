@@ -67,7 +67,8 @@ const routes: Routes = [
   {
     path: 'inicio-conductor',
     loadChildren: () => import('./pagesConductor/inicio-conductor/inicio-conductor.module').then( m => m.InicioConductorPageModule)
-  },  {
+  },
+  {
     path: 'perfil',
     loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule)
   },
@@ -92,9 +93,15 @@ const routes: Routes = [
     loadChildren: () => import('./pages/perfilcliente/perfilcliente.module').then( m => m.PerfilclientePageModule)
   },
   {
+
     path: 'ver-viajec',
     loadChildren: () => import('./pages/ver-viajec/ver-viajec.module').then( m => m.VerViajecPageModule)
   },
+  {
+    path: 'modificar-cliente',
+    loadChildren: () => import('./pages/modificar-cliente/modificar-cliente.module').then( m => m.ModificarClientePageModule)
+
+  }
 
 
 ];

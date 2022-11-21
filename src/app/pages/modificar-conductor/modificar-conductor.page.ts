@@ -97,7 +97,7 @@ export class ModificarConductorPage implements OnInit {
 
   modificar() {
 ////////////////////////////////////////////////////////////////////////
-      if (this.nombremod.length != 0 && this.idrolextras == "1") {
+      if (this.nombremod.length != 0 ) {
         let navigationExtras: NavigationExtras = {
           state: {
             idenviado: this.Usuario[0].idusuario,
@@ -110,22 +110,9 @@ export class ModificarConductorPage implements OnInit {
         this.router.navigate(['/inicio-conductor'],navigationExtras);
         this.bd.updateUsuario(this.idextras, this.nombremod);
         this.bd.presentAlert("Usuario Modificado Exitosamente!!!")
-      } else {
-        if (this.nombremod.length != 0 && this.idrolextras == "2"){
-          let navigationExtras: NavigationExtras = {
-            state: {
-              idenviado: this.idextras,
-              nombreenviado: this.nombreextras,
-              claveenviado: this.claveextras,
-              fotoenviado: this.fotoextras,
-              idrolenviado: this.idrolextras
-            }
-          }
-          this.router.navigate(['/inicio-cliente'],navigationExtras);
-          this.bd.updateUsuario(this.idextras, this.nombremod);
-          this.bd.presentAlert("Usuario Modificado Exitosamente!!")
-        }
-  
+      } 
+      else {
+        this.bd.presentAlert("Debe ingresar un texto")
       }
-      }
+    }
     }
