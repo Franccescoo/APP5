@@ -91,6 +91,10 @@ const routes: Routes = [
     path: 'perfilcliente',
     loadChildren: () => import('./pages/perfilcliente/perfilcliente.module').then( m => m.PerfilclientePageModule)
   },
+  {
+    path: 'ver-viajec',
+    loadChildren: () => import('./pages/ver-viajec/ver-viajec.module').then( m => m.VerViajecPageModule)
+  },
 
 
 ];

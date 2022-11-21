@@ -30,6 +30,7 @@ export class InicioConductorPage implements OnInit {
   idrol = '';
   Usuario: any[] = []
   Auto: any[] = []
+  Viaje: any[] = []
   constructor(private activedRouter: ActivatedRoute,private bd: DbservicioService, private api: CameraService, public nativeStorage: NativeStorage, private router: Router) {
     this.activedRouter.queryParams.subscribe(param=>{
       if(this.router.getCurrentNavigation().extras.state){
@@ -65,6 +66,13 @@ export class InicioConductorPage implements OnInit {
       if(res){
         this.bd.fetchauto().subscribe(item =>{
           this.Auto = item;
+        })
+      }
+    })
+    this.bd.dbState().subscribe((res)=>{
+      if(res){
+        this.bd.fetchViaje().subscribe(item =>{
+          this.Viaje = item;
         })
       }
     })
@@ -118,9 +126,7 @@ export class InicioConductorPage implements OnInit {
     let navigationExtras: NavigationExtras = {
       state: {
         patenteenviado: this.Auto[0].patente,
-        idrolautoenviado: this.Auto[0].fk_id_rol,
-        marcaenviado: this.Usuario[0].marca,
-        
+        idrolautoenviado: this.Auto[0].fk_id_rol,        
         idenviado: this.Usuario[0].idusuario,
         nombreenviado: this.Usuario[0].nombre,
         claveenviado: this.Usuario[0].clave,
@@ -129,5 +135,18 @@ export class InicioConductorPage implements OnInit {
       }
     }
     this.router.navigate(['/crear-viaje'], navigationExtras);
+  }
+  verviaje(){
+    let navigationExtras: NavigationExtras ={
+      state: {
+        idviajeenviado: this.Viaje[0].idviaje,
+        nombreviajeenviado : this.Viaje[0].nombre,
+        patenteenviado : this.Viaje[0].patente,
+        comunaenviado: this.Viaje[0].comuna,
+        costoenviado: this.Viaje[0].costo
+      }
+    }
+    this.router.navigate(['/ver-viajec'], navigationExtras)
+
   }
 }

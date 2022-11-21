@@ -13,7 +13,8 @@ export class CrearViajePage implements OnInit {
   fotocon: any;
   
   radioSelected='';
-
+  tarifa='';
+  comun='';
   idextras='';
   nombreextras='';
   claveextras='';
@@ -25,7 +26,7 @@ export class CrearViajePage implements OnInit {
 
   Usuario: any[] = []
   Auto: any[] = []
-
+  Viaje: any[] = []
   constructor(private activedRouter: ActivatedRoute,private bd: DbservicioService, private api: CameraService, public nativeStorage: NativeStorage, private router: Router) {
     this.activedRouter.queryParams.subscribe(param=>{
       if(this.router.getCurrentNavigation().extras.state){
@@ -36,7 +37,6 @@ export class CrearViajePage implements OnInit {
         this.idrolextras = this.router.getCurrentNavigation().extras.state.idrolenviado;
         this.patentextras = this.router.getCurrentNavigation().extras.state.patenteenviado;
         this.fkextras = this.router.getCurrentNavigation().extras.state.fkenviado;
-        this.marcaextras = this.router.getCurrentNavigation().extras.state.marcaenviado;
       }
     })
   }
@@ -61,9 +61,24 @@ ngOnInit() {
         })
       }
     })
+    this.bd.dbState().subscribe((res)=>{
+      if(res){
+        this.bd.fetchViaje().subscribe(item =>{
+          this.Viaje = item;
+        })
+      }
+    })
 
 }//FINAL ONINIT
 
+crearviaje(){
+  this.bd.agregarviaje(this.nombreextras,this.comun,this.tarifa,this.radioSelected)
+  this.bd.presentAlert("Viaje creado")
+  this.router.navigate(['/inicio-conductor'])
+
+  
+
+}
 
 
 }//FINAL;

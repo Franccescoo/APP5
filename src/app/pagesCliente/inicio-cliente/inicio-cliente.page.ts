@@ -88,4 +88,8 @@ export class InicioClientePage implements OnInit {
   AbrirCamara() {
     this.api.TakePicture();
   }
+
+  verviaje(){
+    
+  }
 }
