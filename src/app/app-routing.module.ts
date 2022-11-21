@@ -91,6 +91,10 @@ const routes: Routes = [
     path: 'perfilcliente',
     loadChildren: () => import('./pages/perfilcliente/perfilcliente.module').then( m => m.PerfilclientePageModule)
   },
+  {
+    path: 'modificar-cliente',
+    loadChildren: () => import('./pages/modificar-cliente/modificar-cliente.module').then( m => m.ModificarClientePageModule)
+  },
 
 
 ];

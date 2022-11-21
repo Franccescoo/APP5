@@ -65,7 +65,7 @@ export class PerfilclientePage implements OnInit {
         idrolenviado: this.Usuario[0].fk_id_rol
       }
     }
-    this.router.navigate(['/modificar-conductor'], navigationExtras);
+    this.router.navigate(['/modificar-cliente'], navigationExtras);
   }
 
   EditarPass(){
