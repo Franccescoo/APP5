@@ -118,7 +118,6 @@ export class DbservicioService {
       await this.database.executeSql(this.tablaComen,[]);
       //this.presentAlert("error tabla 7")
       await this.database.executeSql(this.viaje1,[]);
-      this.presentAlert("inserta viaje")
 
       this.buscarUsuario();
       this.buscarViaje();
