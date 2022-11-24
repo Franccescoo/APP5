@@ -37,9 +37,9 @@ export class DbservicioService {
 
   viaje1: string = "INSERT OR IGNORE INTO viaje ( nombre,  patente, comuna, costo) VALUES ('franccesco',  'KFC10MF', 'QUILICURA', 5000);";
 
-  // usuario1: string = "INSERT or IGNORE INTO usuario(idusuario, nombre, clave, username, fk_id_rol) VALUES (1, 'v.rosendo','J.12mm8','Victor', 1);";
-  // usuario2: string = "INSERT or IGNORE INTO usuario(idusuario, nombre, clave, fk_id_rol) VALUES (2, 'j.baez','B.34vf8', 2);";
-  // usuario3: string = "INSERT or IGNORE INTO usuario(idusuario, nombre, clave, fk_id_rol) VALUES (3, 'a.diaz','C.54yt78', 2);";
+  usuario1: string = "INSERT or IGNORE INTO usuario(idusuario, nombre, clave, username, fk_id_rol) VALUES (1, 'v.rosendo','J.12mm8','Victor', 1);";
+  usuario2: string = "INSERT or IGNORE INTO usuario(idusuario, nombre, clave, fk_id_rol) VALUES (2, 'j.baez','B.34vf8', 2);";
+  usuario3: string = "INSERT or IGNORE INTO usuario(idusuario, nombre, clave, fk_id_rol) VALUES (3, 'a.diaz','C.54yt78', 2);";
 
 
   // auto1: string = "INSERT or IGNORE INTO auto(patente, marca ,fk_id_usuario) VALUES ('FF-HH-22','Audi',1);";
