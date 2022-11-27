@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="success">
-    <ion-title>Crear estacionamiento</ion-title>
+    <ion-title>Crear Viaje</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -38,17 +38,10 @@
       <ion-select-option value="Quilicura">Quilicura</ion-select-option>
     </ion-select>
   </ion-item>
-
-
-  <ion-item fill="solid" style="margin-top: 20px;">
-    <ion-label position="floating">Ingrese la direccion exacta del estacionamiento:</ion-label>
-    <ion-input [(ngModel)]="direccion" type="text"></ion-input>
-    <ion-note slot="helper">direccion</ion-note>
-  </ion-item>
   
   <ion-item fill="solid" style="margin-top: 20px;">
-    <ion-label position="floating">Ingrese el costo del estacionamiento:</ion-label>
-    <ion-input [(ngModel)]="costo" type="number"></ion-input>
+    <ion-label position="floating">Ingrese la tarifa del viaje:</ion-label>
+    <ion-input [(ngModel)]="tarifa" type="number"></ion-input>
     <ion-note slot="helper">Tarifa</ion-note>
   </ion-item>
 
@@ -59,11 +52,22 @@
     </label>
   </div>  -->
 
-  
+  <h3 style="margin-top: 20px;">Seleccione el vehiculo que quiere usar:</h3>
+  <ion-list>
+    <ion-radio-group [allowEmptySelection]="true"  [(ngModel)]="radioSelected">
+      <div *ngFor="let x of Auto">
+      <ion-item>
+        <ion-label>{{x.marca}}</ion-label>
+        <ion-label>{{x.patente}}</ion-label>
+        <ion-radio  id="Patente: {{x.patente}}" [value]='x.patente' name="patente" >{{x.patente}}</ion-radio>
+      </ion-item>
+      </div>
+    </ion-radio-group>
+  </ion-list>
 
   <!-- <h2>{{radioSelected}}</h2> -->
   
-  <ion-button style="margin-top: 40px;"color="success"expand="full" (click)="crearviaje()">Crear estacionamiento</ion-button>
+  <ion-button style="margin-top: 40px;"color="success"expand="full" (click)="crearviaje()">Crear viaje</ion-button>
 
   <ion-button style="margin-top: 20px;"color="success"expand="full" (click)="Volver()"  (click)="click()">Cancelar</ion-button>
 
