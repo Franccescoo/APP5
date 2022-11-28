@@ -25,7 +25,7 @@ export class DbservicioService {
   tablaRol: string = "CREATE TABLE IF NOT EXISTS rol(idrol INTEGER PRIMARY KEY , nombrerol VARCHAR (30));";
   tablaUsuario: string = "CREATE TABLE IF NOT EXISTS usuario(idusuario INTEGER PRIMARY KEY autoincrement  , nombre VARCHAR (20)  , clave VARCHAR (15), foto VARCHAR(30) ,fk_id_rol INTEGER ,FOREIGN KEY(fk_id_rol) REFERENCES rol(idrol));";
   tablaAuto: string = "CREATE TABLE IF NOT EXISTS auto( patente VARCHAR(30) PRIMARY KEY   , marca VARCHAR (20) ,  modelo VARCHAR (30)  , puesto INTEGER  ,fk_id_usuario INTEGER ,FOREIGN KEY(fk_id_usuario) REFERENCES usuario(idusuario));";
-  tablaViaje: string = "CREATE TABLE IF NOT EXISTS viaje(nombre VARCHAR(50) , patente VARCHAR(50) , comuna VARCHAR(50)  , costo INTEGER);";
+  tablaViaje: string = "CREATE TABLE IF NOT EXISTS viaje(idviaje INTEGER PRIMARY KEY autoincrement,nombre VARCHAR(50) , patente VARCHAR(50) , comuna VARCHAR(50)  , costo INTEGER, asientos INTEGER, nombpasajero VARCHAR(50), idpasajero INTEGER);";
 
   tablaComen: string = "CREATE TABLE IF NOT EXISTS comentario(idComentario INTEGER PRIMARY KEY autoincrement, comentario VARCHAR(500), fk_iduser INTEGER, FOREIGN KEY(fk_iduser) REFERENCES usuario(idusuario));";
 
@@ -159,10 +159,12 @@ export class DbservicioService {
       if (res.rows.length > 0) {
         for (var i = 0; i < res.rows.length; i++) {
           items.push({
+            idviaje: res.rows.item(i).idviaje,
             nombre: res.rows.item(i).nombre,
             patente: res.rows.item(i).patente,
             comuna: res.rows.item(i).comuna,
-            costo: res.row.item(i).costo
+            costo: res.row.item(i).costo,
+            asientos: res.row.item(i).asientos
 
           });
         }
@@ -206,9 +208,16 @@ export class DbservicioService {
     return this.listaViaje.asObservable();
   }
 
-  agregarviaje(nombre,destino,monto,patente){
-    let data =[nombre,patente,destino,monto];
-    return this.database.executeSql('INSERT or IGNORE INTO viaje(nombre,patente,comuna,costo) VALUES (?,?,?,?)',data).then(res=>{
+  agregarviaje(nombre,destino,monto,patente,asientos){
+    let data =[nombre,patente,destino,monto,asientos];
+    return this.database.executeSql('INSERT or IGNORE INTO viaje(nombre,patente,comuna,costo,asientos) VALUES (?,?,?,?,?)',data).then(res=>{
+      this.buscarViaje();
+    })
+
+  }
+  eliminarviaje(idviaje){
+    let data =[idviaje];
+    return this.database.executeSql('DELETE FROM viaje WHERE idviaje = ?', [idviaje]).then(res => {
       this.buscarViaje();
     })
 

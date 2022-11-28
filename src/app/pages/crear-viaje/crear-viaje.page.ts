@@ -12,6 +12,7 @@ import { DbservicioService } from 'src/app/services/dbservicio.service';
 export class CrearViajePage implements OnInit {
   fotocon: any;
   
+  asientos='';
   radioSelected='';
   tarifa='';
   comun='';
@@ -79,19 +80,22 @@ ngOnInit() {
 
 
 crearviaje(){
+  // if(this.asientos < '4' && this.asientos == '0')
   this.nativeStorage.setItem('nombreViaje', this.nombreextras);
   this.nativeStorage.setItem('patenteViaje', this.radioSelected);
   this.nativeStorage.setItem('comunaViaje',this.comun);
   this.nativeStorage.setItem('costoViaje', this.tarifa);
+  this.nativeStorage.setItem('asientos', this.asientos);
   let navigationExtras: NavigationExtras = {
     state: {
       nombreenviadov: this.nombreextras,
       patenteenviadov: this.radioSelected,
       comunaenviadov: this.comun,
-      costoenviadov: this.tarifa
+      costoenviadov: this.tarifa,
+      asientoenviadov: this.asientos
     }
   }
-  this.bd.agregarviaje(this.nombreextras,this.comun,this.tarifa,this.radioSelected)
+  this.bd.agregarviaje(this.nombreextras,this.comun,this.tarifa,this.radioSelected,this.asientos)
   this.bd.presentAlert("Viaje creado")
   this.router.navigate(['/viajeencurso'],navigationExtras)
 }

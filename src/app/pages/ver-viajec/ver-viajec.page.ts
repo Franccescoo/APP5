@@ -14,7 +14,7 @@ export class VerViajecPage implements OnInit {
   patenteV='';
   comunaV='';
   costoV='';
-  
+  asientosV='';
   Usuario: any[] = []
 
   Auto: any[] = []
@@ -26,7 +26,8 @@ export class VerViajecPage implements OnInit {
       nombre: '',
       patente: '',
       comuna: '',
-      costo: ''
+      costo: '',
+      asiento:''
     }
   ]
   constructor(private activedRouter: ActivatedRoute, private bd: DbservicioService, private api: CameraService, public nativeStorage: NativeStorage, private router: Router) {
@@ -36,6 +37,7 @@ export class VerViajecPage implements OnInit {
         this.patenteV = this.router.getCurrentNavigation().extras.state.patenteenviadov;
         this.comunaV = this.router.getCurrentNavigation().extras.state.comunaenviadov;
         this.costoV = this.router.getCurrentNavigation().extras.state.costoenviadov;
+        this.asientosV = this.router.getCurrentNavigation().extras.state.asientoenviadov;
       }
     })
    }

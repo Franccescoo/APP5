@@ -14,6 +14,7 @@ export class ViajeencursoPage implements OnInit {
   patenteV='';
   comunaV='';
   costoV='';
+  asientosV='';
 
   constructor(public nativeStorage: NativeStorage,private alertController: AlertController,private route:Router) { 
 
@@ -51,6 +52,12 @@ export class ViajeencursoPage implements OnInit {
     this.nativeStorage.getItem('costoViaje').then((data4)=>{
       //this.presentAlert1(data4);
       this.costoV = data4
+    })
+  }
+  GetAsientos(){
+    this.nativeStorage.getItem('asientos').then((data5)=>{
+      //this.presentAlert1(data5);
+      this.asientosV = data5
     })
   }
 
