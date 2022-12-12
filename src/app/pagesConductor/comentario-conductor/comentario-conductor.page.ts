@@ -8,12 +8,7 @@ import { DbservicioService } from 'src/app/services/dbservicio.service';
   styleUrls: ['./comentario-conductor.page.scss'],
 })
 export class ComentarioConductorPage implements OnInit {
-  listaComen: any = [
-    {
-      texto: ''
-    }
-  ]
-
+  Comentarios: any[] = []
   texto="";
 
   constructor(private activedRouter: ActivatedRoute,private conexionBD: DbservicioService, private router: Router) {
@@ -30,7 +25,7 @@ export class ComentarioConductorPage implements OnInit {
       if(res){
         //subscribo a los cambios en las consultas de BD
         this.conexionBD.fetchComen().subscribe(item=>{
-          this.listaComen = item;
+          this.Comentarios = item;
         })
       }
     })

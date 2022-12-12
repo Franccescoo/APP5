@@ -10,33 +10,16 @@
 
 <ion-content>
 
-  <!-- <ion-card>
-    <ion-card-header>
-      <ion-card-title>Comentario</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      {{texto}}
-    </ion-card-content>
-  </ion-card> -->
-
- <ion-list>
-    <ion-item-sliding *ngFor="let x of listaComen">
-      <ion-item>
-        <ion-label>
-          <h2>{{ x.texto }}</h2>
-        </ion-label>
-      </ion-item>
-    </ion-item-sliding>
-  </ion-list> 
-
-  <!-- <ion-list>
-    <ion-item-sliding>
-      <ion-item>
-        <ion-label>
-          <h2>{{ texto }}</h2>
-        </ion-label>
-      </ion-item>
-    </ion-item-sliding>
-  </ion-list> -->
+  <ion-list *ngFor="let x of Comentarios">
+    <ion-card color="success">
+      <ion-card-header>
+        <ion-card-subtitle>ID: {{ x.idComentario }}</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        Comentario: {{ x.comentario }}
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
 
 </ion-content>
