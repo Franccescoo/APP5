@@ -370,6 +370,7 @@ agregarComen(comentario){
   let data = [comentario];
   return this.database.executeSql('INSERT INTO comentario(comentario) VALUES(?)',data).then(res=>{
     this.buscarComen();
+    this.presentAlert("Comentario Añadido")
   });
 
 }

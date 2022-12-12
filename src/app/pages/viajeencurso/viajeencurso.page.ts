@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
 import { AlertController } from '@ionic/angular';
+import { DbservicioService } from 'src/app/services/dbservicio.service';
 @Component({
   selector: 'app-viajeencurso',
   templateUrl: './viajeencurso.page.html',
@@ -16,7 +17,9 @@ export class ViajeencursoPage implements OnInit {
   costoV='';
   asientosV='';
 
-  constructor(public nativeStorage: NativeStorage,private alertController: AlertController,private route:Router) { 
+  comen='';
+  punto=0;
+  constructor(private bd: DbservicioService,public nativeStorage: NativeStorage,private alertController: AlertController,private route:Router) { 
 
     this.GetNombre()
     this.GetPatente()
@@ -90,6 +93,11 @@ export class ViajeencursoPage implements OnInit {
   CancelarV(){
     this.presentAlert1();
     this.route.navigate(['/crear-viaje']);
+  }
+
+  EnviarComen(){
+    this.bd.agregarComen(this.comen);
+    this.punto=1;
   }
 
 }
