@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
 import { AlertController } from '@ionic/angular';
+import { DbservicioService } from 'src/app/services/dbservicio.service';
 
 @Component({
   selector: 'app-solicitud-viaje',
@@ -27,12 +28,12 @@ export class SolicitudViajePage implements OnInit {
   fotoextras='';
   idrolextras='';
 
-
+  Usuario: any[] = []
   asiento: number;
   punto=0;
   Asi: number;
 
-  constructor(private activedRouter: ActivatedRoute,public nativeStorage: NativeStorage,private alertController: AlertController,private router:Router) { 
+  constructor(private bd: DbservicioService,private activedRouter: ActivatedRoute,public nativeStorage: NativeStorage,private alertController: AlertController,private router:Router) { 
     this.activedRouter.queryParams.subscribe(param=>{
       if(this.router.getCurrentNavigation().extras.state){
         this.idextras = this.router.getCurrentNavigation().extras.state.idenviado;
@@ -51,6 +52,15 @@ export class SolicitudViajePage implements OnInit {
     
   }
   ngOnInit() {
+    this.bd.dbState().subscribe((res) => {
+      if (res) {
+        this.bd.fetchUser().subscribe(item => {
+          this.Usuario = item;
+
+        })
+      }
+    })
+
   }
 
   GetNombre() {
@@ -98,7 +108,7 @@ export class SolicitudViajePage implements OnInit {
       this.presentAlert5("Viaje tomado")
       this.punto=1;
       this.nativeStorage.setItem('asientosToma', this.Asi);
-      this.nativeStorage.setItem('ClientesToma', this.nombreextras);
+      this.nativeStorage.setItem('ClientesToma', this.Usuario[0].nombre);
       this.router.navigate(['/ver-viajec']);
     }
   }
