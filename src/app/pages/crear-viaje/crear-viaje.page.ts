@@ -96,7 +96,7 @@ crearviaje(){
       // }
   if(this.asientos > '4')
     this.bd.presentAlert('Los asientos deben ser menos que 4')
-  else if(this.asientos > '1')
+  else if(this.asientos < '1')
     this.bd.presentAlert('Los asientos deben ser más de 1')
   else
   this.bd.agregarviaje(this.nombreextras,this.comun,this.tarifa,this.radioSelected,this.asientos)
