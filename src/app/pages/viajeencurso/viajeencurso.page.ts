@@ -27,7 +27,7 @@ export class ViajeencursoPage implements OnInit {
   c = null;
   d = null;
   e = null;
-
+  nombreTomado='';
   constructor(private bd: DbservicioService,public nativeStorage: NativeStorage,private alertController: AlertController,private route:Router) { 
 
     this.GetNombre()
@@ -35,8 +35,16 @@ export class ViajeencursoPage implements OnInit {
     this.GetComuna()
     this.GetCosto()
     this.GetAsiento()
+    this.GetNombre2()
   }
   ngOnInit() {
+  }
+
+  GetNombre2() {
+    this.nativeStorage.getItem('ClientesToma').then((data1)=>{
+      //this.presentAlert1(data4);
+      this.nombreTomado = data1
+    })
   }
 
   GetNombre() {

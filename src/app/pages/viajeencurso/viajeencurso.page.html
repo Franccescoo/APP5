@@ -13,7 +13,7 @@
     </ion-card-header>
     <ion-card-header>
       <ion-card-subtitle>Cliente:</ion-card-subtitle>
-      <ion-card-title>{{ ClienteTomado }}</ion-card-title>
+      <ion-card-title>{{ nombreTomado }}</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
@@ -42,14 +42,7 @@
         <textarea  [(ngModel)]="comen" style="margin-top: 30px;" rows="4" cols="29" name="lalista" id="lalista" maxlength="100" disabled></textarea>
       </div>
     </ion-item>
-    <ion-item>
-      <div *ngIf="punto == 0">
-        <ion-button fill="outline" slot="end" color="success" (click)="EnviarComen()" style="padding-right: 55px;">Enviar Comentario</ion-button>
-      </div>
-      <div *ngIf="punto == 1">
-        <ion-button fill="outline" slot="end" color="success" (click)="EnviarComen()" style="padding-right: 55px;" disabled>Enviar Comentario</ion-button>
-      </div>
-    </ion-item>
+
 
 
   </ion-card>

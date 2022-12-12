@@ -98,6 +98,7 @@ export class SolicitudViajePage implements OnInit {
       this.presentAlert5("Viaje tomado")
       this.punto=1;
       this.nativeStorage.setItem('asientosToma', this.Asi);
+      this.nativeStorage.setItem('ClientesToma', this.nombreextras);
     }
   }
 
