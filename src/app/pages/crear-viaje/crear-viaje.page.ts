@@ -81,23 +81,28 @@ ngOnInit() {
 
 crearviaje(){
   // if(this.asientos < '4' && this.asientos == '0')
-  this.nativeStorage.setItem('nombreViaje', this.nombreextras);
-  this.nativeStorage.setItem('patenteViaje', this.radioSelected);
-  this.nativeStorage.setItem('comunaViaje',this.comun);
-  this.nativeStorage.setItem('costoViaje', this.tarifa);
-  this.nativeStorage.setItem('asientos', this.asientos);
-  let navigationExtras: NavigationExtras = {
-    state: {
-      nombreenviadov: this.nombreextras,
-      patenteenviadov: this.radioSelected,
-      comunaenviadov: this.comun,
-      costoenviadov: this.tarifa,
-      asientoenviadov: this.asientos
-    }
-  }
+      // this.nativeStorage.setItem('nombreViaje', this.nombreextras);
+      // this.nativeStorage.setItem('patenteViaje', this.radioSelected);
+      // this.nativeStorage.setItem('comunaViaje',this.comun);
+      // this.nativeStorage.setItem('costoViaje', this.tarifa);
+      // this.nativeStorage.setItem('asientos', this.asientos);
+      // let navigationExtras: NavigationExtras = {
+      //   state: {
+      //     nombreenviadov: this.nombreextras,
+      //     patenteenviadov: this.radioSelected,
+      //     comunaenviadov: this.comun,
+      //     costoenviadov: this.tarifa,
+      //     asientoenviadov: this.asientos
+      //   }
+      // }
+  if(this.asientos > '4')
+    this.bd.presentAlert('Los asientos deben ser menos que 4')
+  else if(this.asientos > '1')
+    this.bd.presentAlert('Los asientos deben ser más de 1')
+  else
   this.bd.agregarviaje(this.nombreextras,this.comun,this.tarifa,this.radioSelected,this.asientos)
   this.bd.presentAlert("Viaje creado")
-  this.router.navigate(['/viajeencurso'],navigationExtras)
+  this.router.navigate(['/viajeencurso'])
 }
 
 Volver(){
