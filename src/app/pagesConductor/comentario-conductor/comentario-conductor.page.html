@@ -13,11 +13,11 @@
   <ion-list *ngFor="let x of Comentarios">
     <ion-card color="success">
       <ion-card-header>
-        <ion-card-subtitle>ID: {{ x.idComentario }}</ion-card-subtitle>
+        <ion-card-subtitle style="color: black;">Comentario: {{ x.idComentario }}</ion-card-subtitle>
       </ion-card-header>
     
-      <ion-card-content>
-        Comentario: {{ x.comentario }}
+      <ion-card-content style="color: black;">
+        {{ x.comentario }}
       </ion-card-content>
     </ion-card>
   </ion-list>
