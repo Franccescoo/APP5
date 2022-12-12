@@ -76,7 +76,7 @@ export class SacarFotoCPage implements OnInit {
       }
     }
     this.bd.modificarUsuarioImg(this.idextras,this.foto);
-    this.router.navigate(['/perfil'], navigationExtras);
+    this.router.navigate(['/inicio-conductor'], navigationExtras);
   }
 
 }
