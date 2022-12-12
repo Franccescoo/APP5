@@ -153,4 +153,8 @@ export class InicioConductorPage implements OnInit {
     }
     this.router.navigate(['/ver-viaje-conductor'],navigationExtras)
   }
+
+  verComen(){
+    this.router.navigate(['/comentario-conductor'])
+  }
 }
