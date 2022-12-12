@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
 import { CameraService } from 'src/app/services/camera.service';
 import { DbservicioService } from 'src/app/services/dbservicio.service';
@@ -21,6 +21,7 @@ export class SacarFotoCPage implements OnInit {
   claveextras='';
   fotoextras='';
   idrolextras='';
+  Usuario: any[] = []
   constructor(private router: Router,private activedRouter: ActivatedRoute,private camara: CameraService,public nativeStorage: NativeStorage, private bd: DbservicioService) { 
   this.activedRouter.queryParams.subscribe(param=>{
     if(this.router.getCurrentNavigation().extras.state){
@@ -34,6 +35,15 @@ export class SacarFotoCPage implements OnInit {
 }
 
   ngOnInit() {
+    this.bd.dbState().subscribe((res) => {
+      if (res) {
+        this.bd.fetchUser().subscribe(item => {
+          this.Usuario = item;
+
+        })
+      }
+    })
+
     this.nativeStorage.getItem('id').then((data) => {
       this.usua = data
     })
@@ -56,6 +66,16 @@ export class SacarFotoCPage implements OnInit {
 
   Guardar(){
     this.bd.modificarUsuarioImg(this.usua,this.imagen);
+    let navigationExtras: NavigationExtras = {
+      state: {
+        idenviado: this.Usuario[0].idusuario,
+        nombreenviado: this.Usuario[0].nombre,
+        claveenviado: this.Usuario[0].clave,
+        fotoenviado: this.Usuario[0].foto,
+        idrolenviado: this.Usuario[0].fk_id_rol
+      }
+    }
+    this.router.navigate(['/perfil'], navigationExtras);
   }
 
 }

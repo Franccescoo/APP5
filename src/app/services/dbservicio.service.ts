@@ -239,6 +239,7 @@ export class DbservicioService {
     let data = [imagen, idusuario];
     return this.database.executeSql('UPDATE usuario SET imagen = ? WHERE idusuario = ?', data).then(data2 => {
       this.buscarUsuario();
+      this.presentAlert('Imagen guardada')
     })
   }
 
