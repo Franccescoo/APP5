@@ -22,6 +22,7 @@ export class SacarFotoCPage implements OnInit {
   fotoextras='';
   idrolextras='';
   Usuario: any[] = []
+  
   constructor(private router: Router,private activedRouter: ActivatedRoute,private camara: CameraService,public nativeStorage: NativeStorage, private bd: DbservicioService) { 
   this.activedRouter.queryParams.subscribe(param=>{
     if(this.router.getCurrentNavigation().extras.state){
