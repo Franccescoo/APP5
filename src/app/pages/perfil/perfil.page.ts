@@ -40,6 +40,7 @@ export class PerfilPage implements OnInit {
     })
 
 
+
     this.nativeStorage.getItem('id').then((data) => {
       this.id = data
     })
