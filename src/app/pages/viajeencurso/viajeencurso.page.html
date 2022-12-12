@@ -13,7 +13,7 @@
     </ion-card-header>
     <ion-card-header>
       <ion-card-subtitle>Cliente:</ion-card-subtitle>
-      <ion-card-title>...</ion-card-title>
+      <ion-card-title>{{ ClienteTomado }}</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
@@ -21,7 +21,7 @@
       Hasta : {{comunaV}}<br>
       Patente : {{patenteV}}<br>
       Costo : ${{ costoV }}<br>
-      Asientos :{{ asientosV }}<br>
+      Asientos tomados:{{ asientos }}<br>
     </ion-card-content>
     <ion-item>
       <mat-icon slot="start">done</mat-icon>
@@ -43,7 +43,12 @@
       </div>
     </ion-item>
     <ion-item>
-      <ion-button fill="outline" slot="end" color="success" (click)="EnviarComen()"  style="padding-right: 55px;">Enviar Comentario</ion-button>
+      <div *ngIf="punto == 0">
+        <ion-button fill="outline" slot="end" color="success" (click)="EnviarComen()" style="padding-right: 55px;">Enviar Comentario</ion-button>
+      </div>
+      <div *ngIf="punto == 1">
+        <ion-button fill="outline" slot="end" color="success" (click)="EnviarComen()" style="padding-right: 55px;" disabled>Enviar Comentario</ion-button>
+      </div>
     </ion-item>
 
 

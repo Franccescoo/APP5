@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="success">
-    <ion-title>Solicitudes Disponibles</ion-title>
+    <ion-title>Viajes Creados</ion-title>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
@@ -8,8 +8,6 @@
 </ion-header>
 
 <ion-content>
-
-
 
   <div *ngIf="comunaV == buena">
   <ion-accordion-group>
@@ -22,44 +20,12 @@
         Hasta : {{comunaV}}<br>
         Patente : {{patenteV}}<br>
         Costo : ${{ costoV }}<br>
-        Asientos Dispo: {{ asientoV }}
-
-        <div *ngIf="punto == 0">
-          <ion-item style="margin-top: 20px;">
-            <ion-label position="floating" value=""  >Asientos <span style="color: red;">*</span></ion-label>
-            <ion-select placeholder="Cantidad de Asientos" value="" [(ngModel)]="Asi">
-              <ion-select-option value="1">1 Asiento</ion-select-option>
-              <ion-select-option value="2">2 Asientos</ion-select-option>
-              <ion-select-option value="3">3 Asientos</ion-select-option>
-              <ion-select-option value="4">4 Asientos</ion-select-option>
-            </ion-select>
-          </ion-item>
-        </div>
-        <div *ngIf="punto == 1">
-          <ion-item style="margin-top: 20px;" disabled>
-            <ion-label position="floating" value=""  >Asientos <span style="color: red;">*</span></ion-label>
-            <ion-select placeholder="Cantidad de Asientos" value="" [(ngModel)]="Asi">
-              <ion-select-option value="1">1 Asiento</ion-select-option>
-              <ion-select-option value="2">2 Asientos</ion-select-option>
-              <ion-select-option value="3">3 Asientos</ion-select-option>
-              <ion-select-option value="4">4 Asientos</ion-select-option>
-            </ion-select>
-          </ion-item>
-        </div>
-
-        <div *ngIf="punto == 0">
-          <ion-button (click)="click()">Tomar Viaje</ion-button>
-        </div>
-        <div *ngIf="punto == 1">
-          <ion-button (click)="click()" disabled>Tomar Viaje</ion-button>
-        </div>
-
+        <ion-button (click)="presentAlert()" (click)="VerViaje()">Ver Viaje</ion-button>
+        <ion-button (click)="presentAlert()" (click)="EliminarV()">Eliminar Viaje</ion-button>
       </div>
     </ion-accordion>
   </ion-accordion-group>
   </div>
-
-
 
   <div *ngIf="comunaV == buena2">
     <ion-accordion-group>

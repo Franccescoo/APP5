@@ -4,12 +4,11 @@ import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
 import { AlertController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-solicitud-viaje',
-  templateUrl: './solicitud-viaje.page.html',
-  styleUrls: ['./solicitud-viaje.page.scss'],
+  selector: 'app-ver-viaje-conductor',
+  templateUrl: './ver-viaje-conductor.page.html',
+  styleUrls: ['./ver-viaje-conductor.page.scss'],
 })
-export class SolicitudViajePage implements OnInit {
-
+export class VerViajeConductorPage implements OnInit {
   buena = 'Quilicura';
   buena2 = 'Las Condes'
   buena3 = 'Independencia'
@@ -27,10 +26,11 @@ export class SolicitudViajePage implements OnInit {
   fotoextras='';
   idrolextras='';
 
-
-  asiento= this.asientoV;
-  punto=0;
-  Asi: number;
+  a = null;
+  b = null;
+  c = null;
+  d = null;
+  e = null;
 
   constructor(private activedRouter: ActivatedRoute,public nativeStorage: NativeStorage,private alertController: AlertController,private router:Router) { 
     this.activedRouter.queryParams.subscribe(param=>{
@@ -48,7 +48,6 @@ export class SolicitudViajePage implements OnInit {
     this.GetComuna()
     this.GetCosto()
     this.GetAsiento()
-    
   }
   ngOnInit() {
   }
@@ -88,24 +87,23 @@ export class SolicitudViajePage implements OnInit {
     })
   }
 
-  click(){
-    this.asiento = this.asiento - this.Asi;
-    if( this.asiento < 0 ){
-      this.presentAlert5("Asientos no disponibles")
-      this.asiento = 3;
-    } else if ( this.asiento > 0 ) {
-      this.presentAlert5("Asientos Seleccionados")
-      this.punto=1;
-    }
+  VerViaje(){
+    this.nativeStorage.setItem('nombreViaje', this.nombreV);
+    this.nativeStorage.setItem('patenteViaje', this.patenteV);
+    this.nativeStorage.setItem('comunaViaje',this.comunaV);
+    this.nativeStorage.setItem('costoViaje', this.costoV);
+    this.nativeStorage.setItem('asientos', this.asientoV);
+    this.router.navigate(['/viajeencurso']);
   }
 
-  async presentAlert5(msj: string) {
-    const alert = await this.alertController.create({
-      message: msj,
-      buttons: ['OK'],
-    });
-  
-    await alert.present();
+  EliminarV(){
+    this.nativeStorage.setItem('nombreViaje', this.a);
+    this.nativeStorage.setItem('patenteViaje', this.b);
+    this.nativeStorage.setItem('comunaViaje',this.c);
+    this.nativeStorage.setItem('costoViaje', this.d);
+    this.nativeStorage.setItem('asientos', this.e);
+    this.presentAlert1("El viaje ha sido eliminado");
+    this.router.navigate(['/inicio-conductor']);
   }
 
   async presentAlert() {
@@ -120,7 +118,7 @@ export class SolicitudViajePage implements OnInit {
 
   async presentAlert1(msj: string) {
     const alert = await this.alertController.create({
-      header: 'Alert',
+      header: 'Alerta',
       message: msj,
       buttons: ['OK'],
     });

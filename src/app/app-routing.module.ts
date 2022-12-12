@@ -112,6 +112,10 @@ const routes: Routes = [
   {
     path: 'sacar-foto-c',
     loadChildren: () => import('./pages/sacar-foto-c/sacar-foto-c.module').then( m => m.SacarFotoCPageModule)
+  },
+  {
+    path: 'ver-viaje-conductor',
+    loadChildren: () => import('./pages/ver-viaje-conductor/ver-viaje-conductor.module').then( m => m.VerViajeConductorPageModule)
   }
 
 

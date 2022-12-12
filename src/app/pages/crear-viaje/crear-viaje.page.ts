@@ -13,6 +13,7 @@ export class CrearViajePage implements OnInit {
   fotocon: any;
   
   asientos='';
+
   radioSelected='';
   tarifa='';
   comun='';
@@ -29,6 +30,7 @@ export class CrearViajePage implements OnInit {
   b = null;
   c = null;
   d = null;
+  e = null;
 
   Usuario: any[] = []
   Auto: any[] = []
@@ -78,11 +80,11 @@ ngOnInit() {
 
 crearviaje(){
   // if(this.asientos < '4' && this.asientos == '0')
-      // this.nativeStorage.setItem('nombreViaje', this.nombreextras);
-      // this.nativeStorage.setItem('patenteViaje', this.radioSelected);
-      // this.nativeStorage.setItem('comunaViaje',this.comun);
-      // this.nativeStorage.setItem('costoViaje', this.tarifa);
-      // this.nativeStorage.setItem('asientos', this.asientos);
+      this.nativeStorage.setItem('nombreViaje', this.nombreextras);
+      this.nativeStorage.setItem('patenteViaje', this.radioSelected);
+      this.nativeStorage.setItem('comunaViaje',this.comun);
+      this.nativeStorage.setItem('costoViaje', this.tarifa);
+      this.nativeStorage.setItem('asientos', this.asientos);
       // let navigationExtras: NavigationExtras = {
       //   state: {
       //     nombreenviadov: this.nombreextras,
@@ -99,7 +101,7 @@ crearviaje(){
   else
   this.bd.agregarviaje(this.nombreextras,this.comun,this.tarifa,this.radioSelected,this.asientos)
   this.bd.presentAlert("Viaje creado")
-  this.router.navigate(['/viajeencurso'])
+  this.router.navigate(['/inicio-conductor'])
 }
 
 Volver(){
@@ -107,6 +109,7 @@ Volver(){
   this.nativeStorage.setItem('patenteViaje', this.b);
   this.nativeStorage.setItem('comunaViaje',this.c);
   this.nativeStorage.setItem('costoViaje', this.d);
+  this.nativeStorage.setItem('asientos', this.e);
   this.router.navigate(['/inicio-conductor'])
 }
 

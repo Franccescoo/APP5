@@ -17,14 +17,24 @@ export class ViajeencursoPage implements OnInit {
   costoV='';
   asientosV='';
 
+  ClienteTomado="";
+
   comen='';
   punto=0;
+
+  a = null;
+  b = null;
+  c = null;
+  d = null;
+  e = null;
+
   constructor(private bd: DbservicioService,public nativeStorage: NativeStorage,private alertController: AlertController,private route:Router) { 
 
     this.GetNombre()
     this.GetPatente()
     this.GetComuna()
     this.GetCosto()
+    this.GetAsiento()
   }
   ngOnInit() {
   }
@@ -57,7 +67,7 @@ export class ViajeencursoPage implements OnInit {
       this.costoV = data4
     })
   }
-  GetAsientos(){
+  GetAsiento(){
     this.nativeStorage.getItem('asientos').then((data5)=>{
       //this.presentAlert1(data5);
       this.asientosV = data5
@@ -86,13 +96,18 @@ export class ViajeencursoPage implements OnInit {
   }
 
   FinalizarV(){
+    this.nativeStorage.setItem('nombreViaje', this.a);
+    this.nativeStorage.setItem('patenteViaje', this.b);
+    this.nativeStorage.setItem('comunaViaje',this.c);
+    this.nativeStorage.setItem('costoViaje', this.d);
+    this.nativeStorage.setItem('asientos', this.e);
     this.presentAlert2();
-    this.route.navigate(['/crear-viaje']);
+    this.route.navigate(['/inicio-conductor']);
   }
 
   CancelarV(){
     this.presentAlert1();
-    this.route.navigate(['/crear-viaje']);
+    this.route.navigate(['/ver-viaje-conductor']);
   }
 
   EnviarComen(){

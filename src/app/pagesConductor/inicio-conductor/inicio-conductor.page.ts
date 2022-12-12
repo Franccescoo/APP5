@@ -142,7 +142,7 @@ export class InicioConductorPage implements OnInit {
     this.router.navigate(['/crear-viaje'], navigationExtras);
   }
 
-  verviaje(){
+  verViaje(){
     let navigationExtras: NavigationExtras = {
       state: {
         nombreenviadov: this.nombreV,
@@ -151,6 +151,6 @@ export class InicioConductorPage implements OnInit {
         costoenviadov: this.costoV
       }
     }
-    this.router.navigate(['/ver-viajec'],navigationExtras)
+    this.router.navigate(['/ver-viaje-conductor'],navigationExtras)
   }
 }
