@@ -10,7 +10,7 @@ import { DbservicioService } from 'src/app/services/dbservicio.service';
   styleUrls: ['./ver-viajec.page.scss'],
 })
 export class VerViajecPage implements OnInit {
-
+  Desde= 'Mall Plaza Norte';
   nombreV='';
   patenteV='';
   comunaV='';
