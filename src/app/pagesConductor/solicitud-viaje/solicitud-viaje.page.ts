@@ -19,7 +19,7 @@ export class SolicitudViajePage implements OnInit {
   patenteV='';
   comunaV='';
   costoV='';
-  asientoV='';
+  asientoV:any;
 
   idextras='';
   nombreextras='';
@@ -28,7 +28,7 @@ export class SolicitudViajePage implements OnInit {
   idrolextras='';
 
 
-  asiento= this.asientoV;
+  asiento: number;
   punto=0;
   Asi: number;
 
@@ -89,7 +89,7 @@ export class SolicitudViajePage implements OnInit {
   }
 
   click(){
-    this.asiento = this.asiento - this.Asi;
+    this.asiento = this.asientoV - this.Asi;
     if( this.asiento < 0 ){
       this.presentAlert5("Asientos no disponibles")
       this.asiento = 3;
