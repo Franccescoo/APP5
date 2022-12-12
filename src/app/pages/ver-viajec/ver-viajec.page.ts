@@ -17,9 +17,9 @@ export class VerViajecPage implements OnInit {
   costoV='';
   asientosV='';
   Usuario: any[] = []
-
+  asientoV='';
   nombreTomado='';
-
+  asientoNuevo='';
   comen='';
   punto=0;
 
@@ -54,6 +54,12 @@ export class VerViajecPage implements OnInit {
     })
 
     this.GetNombre()
+    this.GetNombre1()
+    this.GetPatente()
+    this.GetComuna()
+    this.GetCosto()
+    this.GetAsiento()
+    this.GetAsientoNuevo()
    }
 
   ngOnInit() {
@@ -83,10 +89,52 @@ export class VerViajecPage implements OnInit {
     })
   }
 
+  GetNombre1() {
+    this.nativeStorage.getItem('nombreViaje').then((data)=>{
+      //this.presentAlert1(data);
+      this.nombreV = data
+    })
+  }
+
+  GetPatente() {
+    this.nativeStorage.getItem('patenteViaje').then((data2)=>{
+      //this.presentAlert1(data2);
+      this.patenteV = data2
+    })
+  }
+
+  GetComuna() {
+    this.nativeStorage.getItem('comunaViaje').then((data3)=>{
+      //this.presentAlert1(data3);
+      this.comunaV = data3
+    })
+  }
+
+  GetCosto() {
+    this.nativeStorage.getItem('costoViaje').then((data4)=>{
+      //this.presentAlert1(data4);
+      this.costoV = data4
+    })
+  }
+
+  GetAsiento() {
+    this.nativeStorage.getItem('asientos').then((data5)=>{
+      //this.presentAlert1(data4);
+      this.asientoV = data5
+    })
+  }
+
   GetNombre() {
     this.nativeStorage.getItem('ClientesToma').then((data1)=>{
       //this.presentAlert1(data4);
       this.nombreTomado = data1
+    })
+  }
+
+  GetAsientoNuevo(){
+    this.nativeStorage.getItem('asientosToma').then((data6)=>{
+      //this.presentAlert1(data5);
+      this.asientoNuevo = data6
     })
   }
 

@@ -36,6 +36,7 @@ export class ViajeencursoPage implements OnInit {
     this.GetCosto()
     this.GetAsiento()
     this.GetNombre2()
+    this.GetAsientoNuevo()
   }
   ngOnInit() {
   }
