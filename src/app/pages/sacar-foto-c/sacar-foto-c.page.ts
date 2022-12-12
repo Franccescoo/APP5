@@ -13,7 +13,7 @@ export class SacarFotoCPage implements OnInit {
   onModalCancel(onModalCancel: any) {
     throw new Error('Method not implemented.');
   }
-  imagen: any;
+  foto: any;
   usua : number;
 
   idextras='';
@@ -22,7 +22,7 @@ export class SacarFotoCPage implements OnInit {
   fotoextras='';
   idrolextras='';
   Usuario: any[] = []
-  
+
   constructor(private router: Router,private activedRouter: ActivatedRoute,private camara: CameraService,public nativeStorage: NativeStorage, private bd: DbservicioService) { 
   this.activedRouter.queryParams.subscribe(param=>{
     if(this.router.getCurrentNavigation().extras.state){
@@ -50,19 +50,19 @@ export class SacarFotoCPage implements OnInit {
     })
 
     this.camara.fetchImage().subscribe(item=>{
-      this.imagen = item;
+      this.foto = item;
     })
   }
 
   Camara() {
     this.camara.Camera();
-    this.imagen = this.camara.image;
+    this.foto = this.camara.image;
   }
 
 
   Galeria() {
     this.camara.Galery();
-    this.imagen = this.camara.image;
+    this.foto = this.camara.image;
   }
 
   Guardar(){
@@ -71,11 +71,11 @@ export class SacarFotoCPage implements OnInit {
         idenviado: this.Usuario[0].idusuario,
         nombreenviado: this.Usuario[0].nombre,
         claveenviado: this.Usuario[0].clave,
-        fotoenviado: this.Usuario[0].imagen,
+        fotoenviado: this.Usuario[0].foto,
         idrolenviado: this.Usuario[0].fk_id_rol,
       }
     }
-    this.bd.modificarUsuarioImg(this.idextras,this.imagen);
+    this.bd.modificarUsuarioImg(this.idextras,this.foto);
     this.router.navigate(['/perfil'], navigationExtras);
   }
 
