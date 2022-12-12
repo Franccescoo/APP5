@@ -40,7 +40,6 @@ export class PerfilPage implements OnInit {
     })
 
 
-
     this.nativeStorage.getItem('id').then((data) => {
       this.id = data
     })
@@ -114,42 +113,6 @@ export class PerfilPage implements OnInit {
     this.router.navigate(['/confirmar-pass'], navigationExtras);
   }
 
-  sacarfoto(){
-    this.camera.getPicture({
-      destinationType: this.camera.DestinationType.DATA_URL,
-      sourceType: this.camera.PictureSourceType.CAMERA,
-      mediaType: this.camera.MediaType.PICTURE,
-      allowEdit: false,
-      encodingType: this.camera.EncodingType.JPEG,
-      targetHeight: 400,
-      targetWidth: 400,
-      correctOrientation: true,
-      saveToPhotoAlbum: true
-    }).then(resultado => {
-      this.base64Image = "data:image/jpeg;base64," + resultado;
-    }).catch(error => {
-      console.log(error);
-    })
-  }
-
-  galeria(){
-    this.camera.getPicture({
-        destinationType: this.camera.DestinationType.DATA_URL,
-        sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
-        mediaType: this.camera.MediaType.PICTURE,
-        allowEdit: false,
-        encodingType: this.camera.EncodingType.JPEG,
-        targetHeight: 400,
-        targetWidth: 400,
-        correctOrientation: true,
-        saveToPhotoAlbum: true
-      }).then(resultado => {
-        this.base64Image = "data:image/jpeg;base64," + resultado;
-      }).catch(error => {
-        console.log(error);
-      })
-
-  }
 
   EditarFoto(){
     let navigationExtras: NavigationExtras = {
