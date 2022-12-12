@@ -53,9 +53,7 @@ export class ModificarConductorPage implements OnInit {
   }
 
   ngOnInit() {
-    this.api.getfoto().subscribe(item => {
-      this.base64Image = item;
-    })
+
     this.bd.dbState().subscribe((res) => {
       if (res) {
         this.bd.fetchUser().subscribe(item => {
@@ -92,9 +90,7 @@ export class ModificarConductorPage implements OnInit {
     })
   }
 
-  AbrirCamara() {
-    this.api.TakePicture();
-  }
+
 
   modificar() {
 ////////////////////////////////////////////////////////////////////////

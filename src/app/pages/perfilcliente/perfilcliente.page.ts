@@ -51,9 +51,6 @@ export class PerfilclientePage implements OnInit {
 
   }
 
-  AbrirCamara() {
-    this.api.TakePicture();
-  }
 
   Editar() {
     let navigationExtras: NavigationExtras = {
@@ -80,6 +77,20 @@ export class PerfilclientePage implements OnInit {
     }
     this.router.navigate(['/confirmar-pass'], navigationExtras);
   }
+
+  EditarFoto(){
+    let navigationExtras: NavigationExtras = {
+      state: {
+        idenviado: this.Usuario[0].idusuario,
+        nombreenviado: this.Usuario[0].nombre,
+        claveenviado: this.Usuario[0].clave,
+        fotoenviado: this.Usuario[0].foto,
+        idrolenviado: this.Usuario[0].fk_id_rol
+      }
+    }
+    this.router.navigate(['/sacar-foto-p'], navigationExtras);
+  }
+
 
 
 }

@@ -49,9 +49,6 @@ export class CrearViajePage implements OnInit {
 
 
 ngOnInit() {
-    this.api.getfoto().subscribe(item => {
-      this.fotocon = item;
-    })
     this.bd.dbState().subscribe((res) => {
       if (res) {
         this.bd.fetchUser().subscribe(item => {

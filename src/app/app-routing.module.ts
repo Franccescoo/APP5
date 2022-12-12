@@ -104,6 +104,14 @@ const routes: Routes = [
   },  {
     path: 'viajeencurso',
     loadChildren: () => import('./pages/viajeencurso/viajeencurso.module').then( m => m.ViajeencursoPageModule)
+  },
+  {
+    path: 'sacar-foto-p',
+    loadChildren: () => import('./pages/sacar-foto-p/sacar-foto-p.module').then( m => m.SacarFotoPPageModule)
+  },
+  {
+    path: 'sacar-foto-c',
+    loadChildren: () => import('./pages/sacar-foto-c/sacar-foto-c.module').then( m => m.SacarFotoCPageModule)
   }
 
 

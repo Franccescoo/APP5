@@ -85,9 +85,6 @@ export class PerfilPage implements OnInit {
     })
   }
 
-  AbrirCamara() {
-    this.api.TakePicture();
-  }
 
   
   Editar() {

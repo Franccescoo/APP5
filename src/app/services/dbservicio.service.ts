@@ -23,7 +23,7 @@ export class DbservicioService {
 
 
   tablaRol: string = "CREATE TABLE IF NOT EXISTS rol(idrol INTEGER PRIMARY KEY , nombrerol VARCHAR (30));";
-  tablaUsuario: string = "CREATE TABLE IF NOT EXISTS usuario(idusuario INTEGER PRIMARY KEY autoincrement  , nombre VARCHAR (20)  , clave VARCHAR (15), foto VARCHAR(30) ,fk_id_rol INTEGER ,FOREIGN KEY(fk_id_rol) REFERENCES rol(idrol));";
+  tablaUsuario: string = "CREATE TABLE IF NOT EXISTS usuario(idusuario INTEGER PRIMARY KEY autoincrement  , nombre VARCHAR (20)  , clave VARCHAR (15), foto BLOB ,fk_id_rol INTEGER ,FOREIGN KEY(fk_id_rol) REFERENCES rol(idrol));";
   tablaAuto: string = "CREATE TABLE IF NOT EXISTS auto( patente VARCHAR(30) PRIMARY KEY   , marca VARCHAR (20) ,  modelo VARCHAR (30)  , puesto INTEGER  ,fk_id_usuario INTEGER ,FOREIGN KEY(fk_id_usuario) REFERENCES usuario(idusuario));";
   tablaViaje: string = "CREATE TABLE IF NOT EXISTS viaje(idviaje INTEGER PRIMARY KEY autoincrement,nombre VARCHAR(50) , patente VARCHAR(50) , comuna VARCHAR(50)  , costo INTEGER, asientos INTEGER, nombpasajero VARCHAR(50), idpasajero INTEGER);";
 
@@ -234,6 +234,14 @@ export class DbservicioService {
       this.buscarUsuario();
     });
   }
+
+  modificarUsuarioImg(idusuario, imagen) {
+    let data = [imagen, idusuario];
+    return this.database.executeSql('UPDATE usuario SET imagen = ? WHERE idusuario = ?', data).then(data2 => {
+      this.buscarUsuario();
+    })
+  }
+
   updateUsuario(idusuario,nombre) {
     let data = [nombre,idusuario];
     return this.database.executeSql('UPDATE usuario SET nombre = ?  WHERE idusuario = ? ', data).then(res => {

@@ -53,9 +53,7 @@ export class ModificarClientePage implements OnInit {
   }
 
   ngOnInit() {
-    this.api.getfoto().subscribe(item => {
-      this.fotocon2 = item;
-    })
+
     this.bd.dbState().subscribe((res) => {
       if (res) {
         this.bd.fetchUser().subscribe(item => {
@@ -92,9 +90,6 @@ export class ModificarClientePage implements OnInit {
     })
   }
 
-  AbrirCamara() {
-    this.api.TakePicture();
-  }
 
   modificar() {
 ////////////////////////////////////////////////////////////////////////

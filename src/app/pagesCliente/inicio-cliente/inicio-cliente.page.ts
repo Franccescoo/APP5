@@ -42,9 +42,6 @@ export class InicioClientePage implements OnInit {
   }
 
   ngOnInit() {
-    this.api.getfoto().subscribe(item => {
-      this.fotocon = item;
-    })
     this.bd.dbState().subscribe((res) => {
       if (res) {
         this.bd.fetchUser().subscribe(item => {
@@ -56,11 +53,6 @@ export class InicioClientePage implements OnInit {
 
   }
 
-
-
-  AbrirCamara() {
-    this.api.TakePicture();
-  }
 
 
   verviaje(){

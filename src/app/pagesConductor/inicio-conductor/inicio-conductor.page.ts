@@ -61,9 +61,6 @@ export class InicioConductorPage implements OnInit {
   }
 
   ngOnInit() {
-    this.api.getfoto().subscribe(item => {
-      this.fotocon = item;
-    })
     this.bd.dbState().subscribe((res) => {
       if (res) {
         this.bd.fetchUser().subscribe(item => {
@@ -116,9 +113,7 @@ export class InicioConductorPage implements OnInit {
     })
   }
 
-  AbrirCamara() {
-    this.api.TakePicture();
-  }
+
 
   verauto(){
     let navigationExtras: NavigationExtras = {
