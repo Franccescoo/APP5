@@ -65,7 +65,6 @@ export class SacarFotoCPage implements OnInit {
   }
 
   Guardar(){
-    this.bd.modificarUsuarioImg(this.usua,this.imagen);
     let navigationExtras: NavigationExtras = {
       state: {
         idenviado: this.Usuario[0].idusuario,
@@ -75,6 +74,7 @@ export class SacarFotoCPage implements OnInit {
         idrolenviado: this.Usuario[0].fk_id_rol,
       }
     }
+    this.bd.modificarUsuarioImg(this.idextras,this.imagen);
     this.router.navigate(['/perfil'], navigationExtras);
   }
 
