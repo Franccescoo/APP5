@@ -99,6 +99,7 @@ export class SolicitudViajePage implements OnInit {
       this.punto=1;
       this.nativeStorage.setItem('asientosToma', this.Asi);
       this.nativeStorage.setItem('ClientesToma', this.nombreextras);
+      this.router.navigate(['/ver-viajec']);
     }
   }
 
