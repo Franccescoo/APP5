@@ -95,7 +95,9 @@ export class SolicitudViajePage implements OnInit {
       this.asiento = 3;
     } else if ( this.asiento > 0 ) {
       this.presentAlert5("Asientos Seleccionados")
+      this.presentAlert5("Viaje tomado")
       this.punto=1;
+      this.nativeStorage.setItem('asientosToma', this.Asi);
     }
   }
 

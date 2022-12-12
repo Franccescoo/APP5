@@ -16,7 +16,7 @@ export class ViajeencursoPage implements OnInit {
   comunaV='';
   costoV='';
   asientosV='';
-
+  asientoNuevo='';
   ClienteTomado="";
 
   comen='';
@@ -71,6 +71,13 @@ export class ViajeencursoPage implements OnInit {
     this.nativeStorage.getItem('asientos').then((data5)=>{
       //this.presentAlert1(data5);
       this.asientosV = data5
+    })
+  }
+
+  GetAsientoNuevo(){
+    this.nativeStorage.getItem('asientosToma').then((data6)=>{
+      //this.presentAlert1(data5);
+      this.asientoNuevo = data6
     })
   }
 
