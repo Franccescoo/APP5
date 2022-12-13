@@ -63,44 +63,223 @@
     </ion-accordion-group>
   </div>
 
-  <!-- <ion-accordion-group>
-    <ion-accordion value="first">
-      <ion-item slot="header">
-        <ion-label>Victor Peñaloza</ion-label>
-      </ion-item>
-      <div class="ion-padding" slot="content">
-        Desde : DuocUC Plaza Norte<br>
-        Hasta : Mall Plaza de Quilicura<br>
-        Acompañantes : Ninguno<br>
-        Celular : 979066489<br>
-        <ion-button (click)="presentAlert()" [routerLink]="['/codigo-qr']">Aceptar Viaje ?</ion-button>
-      </div>
-    </ion-accordion>
-    <ion-accordion value="second">
-      <ion-item slot="header">
-        <ion-label>David Carvajal</ion-label>
-      </ion-item>
-      <div class="ion-padding" slot="content">
-        Desde : DuocUC Plaza Norte<br>
-        Hasta : Mall Plaza de Quilicura<br>
-        Acompañantes : 2 Personas<br>
-        Celular : 974422165<br>
-        <ion-button (click)="presentAlert()" [routerLink]="['/codigo-qr']">Aceptar Viaje ?</ion-button>
-      </div>
-    </ion-accordion>
-    <ion-accordion value="third">
-      <ion-item slot="header">
-        <ion-label>Franccesco Artuso</ion-label>
-      </ion-item>
-      <div class="ion-padding" slot="content">
-        Desde : DuocUC Plaza Norte<br>
-        Hasta : Mall Plaza de Quilicura<br>
-        Acompañantes : 1 Persona<br>
-        Celular : 963244565<br>
-        <ion-button (click)="presentAlert()" [routerLink]="['/codigo-qr']" >Aceptar Viaje ?</ion-button>
-      </div>
-    </ion-accordion>
-  </ion-accordion-group> -->
+  <div *ngIf="comunaV == buena4">
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header">
+          <ion-label>Nombre: {{nombreV}}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          Desde : {{ Desde}}<br>
+          Hasta : {{comunaV}}<br>
+          Patente : {{patenteV}}<br>
+          Costo : ${{ costoV }}<br>
+          <ion-button (click)="VerViaje()">Ver Viaje</ion-button>
+          <ion-button (click)="EliminarV()">Eliminar Viaje</ion-button>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+  </div>
+
+  <div *ngIf="comunaV == buena5">
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header">
+          <ion-label>Nombre: {{nombreV}}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          Desde : {{ Desde}}<br>
+          Hasta : {{comunaV}}<br>
+          Patente : {{patenteV}}<br>
+          Costo : ${{ costoV }}<br>
+          <ion-button (click)="VerViaje()">Ver Viaje</ion-button>
+          <ion-button (click)="EliminarV()">Eliminar Viaje</ion-button>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+  </div>
+
+  <div *ngIf="comunaV == buena6">
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header">
+          <ion-label>Nombre: {{nombreV}}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          Desde : {{ Desde}}<br>
+          Hasta : {{comunaV}}<br>
+          Patente : {{patenteV}}<br>
+          Costo : ${{ costoV }}<br>
+          <ion-button (click)="VerViaje()">Ver Viaje</ion-button>
+          <ion-button (click)="EliminarV()">Eliminar Viaje</ion-button>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+  </div>
+
+  <div *ngIf="comunaV == buena7">
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header">
+          <ion-label>Nombre: {{nombreV}}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          Desde : {{ Desde}}<br>
+          Hasta : {{comunaV}}<br>
+          Patente : {{patenteV}}<br>
+          Costo : ${{ costoV }}<br>
+          <ion-button (click)="VerViaje()">Ver Viaje</ion-button>
+          <ion-button (click)="EliminarV()">Eliminar Viaje</ion-button>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+  </div>
+
+  <div *ngIf="comunaV == buena8">
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header">
+          <ion-label>Nombre: {{nombreV}}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          Desde : {{ Desde}}<br>
+          Hasta : {{comunaV}}<br>
+          Patente : {{patenteV}}<br>
+          Costo : ${{ costoV }}<br>
+          <ion-button (click)="VerViaje()">Ver Viaje</ion-button>
+          <ion-button (click)="EliminarV()">Eliminar Viaje</ion-button>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+  </div>
+
+  <div *ngIf="comunaV == buena9">
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header">
+          <ion-label>Nombre: {{nombreV}}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          Desde : {{ Desde}}<br>
+          Hasta : {{comunaV}}<br>
+          Patente : {{patenteV}}<br>
+          Costo : ${{ costoV }}<br>
+          <ion-button (click)="VerViaje()">Ver Viaje</ion-button>
+          <ion-button (click)="EliminarV()">Eliminar Viaje</ion-button>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+  </div>
+
+  <div *ngIf="comunaV == buena10">
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header">
+          <ion-label>Nombre: {{nombreV}}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          Desde : {{ Desde}}<br>
+          Hasta : {{comunaV}}<br>
+          Patente : {{patenteV}}<br>
+          Costo : ${{ costoV }}<br>
+          <ion-button (click)="VerViaje()">Ver Viaje</ion-button>
+          <ion-button (click)="EliminarV()">Eliminar Viaje</ion-button>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+  </div>
+
+  <div *ngIf="comunaV == buena11">
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header">
+          <ion-label>Nombre: {{nombreV}}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          Desde : {{ Desde}}<br>
+          Hasta : {{comunaV}}<br>
+          Patente : {{patenteV}}<br>
+          Costo : ${{ costoV }}<br>
+          <ion-button (click)="VerViaje()">Ver Viaje</ion-button>
+          <ion-button (click)="EliminarV()">Eliminar Viaje</ion-button>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+  </div>
+
+  <div *ngIf="comunaV == buena12">
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header">
+          <ion-label>Nombre: {{nombreV}}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          Desde : {{ Desde}}<br>
+          Hasta : {{comunaV}}<br>
+          Patente : {{patenteV}}<br>
+          Costo : ${{ costoV }}<br>
+          <ion-button (click)="VerViaje()">Ver Viaje</ion-button>
+          <ion-button (click)="EliminarV()">Eliminar Viaje</ion-button>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+  </div>
+
+  <div *ngIf="comunaV == buena13">
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header">
+          <ion-label>Nombre: {{nombreV}}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          Desde : {{ Desde}}<br>
+          Hasta : {{comunaV}}<br>
+          Patente : {{patenteV}}<br>
+          Costo : ${{ costoV }}<br>
+          <ion-button (click)="VerViaje()">Ver Viaje</ion-button>
+          <ion-button (click)="EliminarV()">Eliminar Viaje</ion-button>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+  </div>
+
+  <div *ngIf="comunaV == buena14">
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header">
+          <ion-label>Nombre: {{nombreV}}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          Desde : {{ Desde}}<br>
+          Hasta : {{comunaV}}<br>
+          Patente : {{patenteV}}<br>
+          Costo : ${{ costoV }}<br>
+          <ion-button (click)="VerViaje()">Ver Viaje</ion-button>
+          <ion-button (click)="EliminarV()">Eliminar Viaje</ion-button>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+  </div>
+
+  <div *ngIf="comunaV == buena15">
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header">
+          <ion-label>Nombre: {{nombreV}}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          Desde : {{ Desde}}<br>
+          Hasta : {{comunaV}}<br>
+          Patente : {{patenteV}}<br>
+          Costo : ${{ costoV }}<br>
+          <ion-button (click)="VerViaje()">Ver Viaje</ion-button>
+          <ion-button (click)="EliminarV()">Eliminar Viaje</ion-button>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+  </div>
+
+
 </ion-content>
 
 <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page"
