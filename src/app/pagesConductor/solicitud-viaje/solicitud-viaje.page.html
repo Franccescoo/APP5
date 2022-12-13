@@ -9,8 +9,6 @@
 
 <ion-content>
 
-
-
   <div *ngIf="comunaV == buena">
   <ion-accordion-group>
     <ion-accordion value="first">
@@ -59,8 +57,6 @@
   </ion-accordion-group>
   </div>
 
-
-
   <div *ngIf="comunaV == buena2">
     <ion-accordion-group>
       <ion-accordion value="first">
@@ -72,67 +68,639 @@
           Hasta : {{comunaV}}<br>
           Patente : {{patenteV}}<br>
           Costo : ${{ costoV }}<br>
-          <ion-button (click)="presentAlert()" (click)="click()">Tomar Viaje</ion-button>
+          Asientos Dispo: {{ asientoV }}
+          <div *ngIf="punto == 0">
+            <ion-item style="margin-top: 20px;">
+              <ion-label position="floating" value=""  >Asientos <span style="color: red;">*</span></ion-label>
+              <ion-select placeholder="Cantidad de Asientos" value="" [(ngModel)]="Asi">
+                <ion-select-option value="1">1 Asiento</ion-select-option>
+                <ion-select-option value="2">2 Asientos</ion-select-option>
+                <ion-select-option value="3">3 Asientos</ion-select-option>
+                <ion-select-option value="4">4 Asientos</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+          <div *ngIf="punto == 1">
+            <ion-item style="margin-top: 20px;" disabled>
+              <ion-label position="floating" value=""  >Asientos <span style="color: red;">*</span></ion-label>
+              <ion-select placeholder="Cantidad de Asientos" value="" [(ngModel)]="Asi">
+                <ion-select-option value="1">1 Asiento</ion-select-option>
+                <ion-select-option value="2">2 Asientos</ion-select-option>
+                <ion-select-option value="3">3 Asientos</ion-select-option>
+                <ion-select-option value="4">4 Asientos</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+  
+          <div *ngIf="punto == 0">
+            <ion-button (click)="click()">Tomar Viaje</ion-button>
+          </div>
+          <div *ngIf="punto == 1">
+            <ion-button (click)="click()" disabled>Tomar Viaje</ion-button>
+          </div>
         </div>
       </ion-accordion>
     </ion-accordion-group>
     </div>
     
-    <div *ngIf="comunaV == buena3">
-      <ion-accordion-group>
-        <ion-accordion value="first">
-          <ion-item slot="header">
-            <ion-label>Nombre: {{nombreV}}</ion-label>
-          </ion-item>
-          <div class="ion-padding" slot="content">
-            Desde : {{ Desde}}<br>
-            Hasta : {{comunaV}}<br>
-            Patente : {{patenteV}}<br>
-            Costo : ${{ costoV }}<br>
-            <ion-button (click)="presentAlert()" (click)="click()">Tomar Viaje</ion-button>
+  <div *ngIf="comunaV == buena3">
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header">
+          <ion-label>Nombre: {{nombreV}}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          Desde : {{ Desde}}<br>
+          Hasta : {{comunaV}}<br>
+          Patente : {{patenteV}}<br>
+          Costo : ${{ costoV }}<br>
+          Asientos Dispo: {{ asientoV }}
+          <div *ngIf="punto == 0">
+            <ion-item style="margin-top: 20px;">
+              <ion-label position="floating" value=""  >Asientos <span style="color: red;">*</span></ion-label>
+              <ion-select placeholder="Cantidad de Asientos" value="" [(ngModel)]="Asi">
+                <ion-select-option value="1">1 Asiento</ion-select-option>
+                <ion-select-option value="2">2 Asientos</ion-select-option>
+                <ion-select-option value="3">3 Asientos</ion-select-option>
+                <ion-select-option value="4">4 Asientos</ion-select-option>
+              </ion-select>
+            </ion-item>
           </div>
-        </ion-accordion>
-      </ion-accordion-group>
-      </div>
+          <div *ngIf="punto == 1">
+            <ion-item style="margin-top: 20px;" disabled>
+              <ion-label position="floating" value=""  >Asientos <span style="color: red;">*</span></ion-label>
+              <ion-select placeholder="Cantidad de Asientos" value="" [(ngModel)]="Asi">
+                <ion-select-option value="1">1 Asiento</ion-select-option>
+                <ion-select-option value="2">2 Asientos</ion-select-option>
+                <ion-select-option value="3">3 Asientos</ion-select-option>
+                <ion-select-option value="4">4 Asientos</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+  
+          <div *ngIf="punto == 0">
+            <ion-button (click)="click()">Tomar Viaje</ion-button>
+          </div>
+          <div *ngIf="punto == 1">
+            <ion-button (click)="click()" disabled>Tomar Viaje</ion-button>
+          </div>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+    </div>
 
-  <!-- <ion-accordion-group>
-    <ion-accordion value="first">
-      <ion-item slot="header">
-        <ion-label>Victor Peñaloza</ion-label>
-      </ion-item>
-      <div class="ion-padding" slot="content">
-        Desde : DuocUC Plaza Norte<br>
-        Hasta : Mall Plaza de Quilicura<br>
-        Acompañantes : Ninguno<br>
-        Celular : 979066489<br>
-        <ion-button (click)="presentAlert()" [routerLink]="['/codigo-qr']">Aceptar Viaje ?</ion-button>
-      </div>
-    </ion-accordion>
-    <ion-accordion value="second">
-      <ion-item slot="header">
-        <ion-label>David Carvajal</ion-label>
-      </ion-item>
-      <div class="ion-padding" slot="content">
-        Desde : DuocUC Plaza Norte<br>
-        Hasta : Mall Plaza de Quilicura<br>
-        Acompañantes : 2 Personas<br>
-        Celular : 974422165<br>
-        <ion-button (click)="presentAlert()" [routerLink]="['/codigo-qr']">Aceptar Viaje ?</ion-button>
-      </div>
-    </ion-accordion>
-    <ion-accordion value="third">
-      <ion-item slot="header">
-        <ion-label>Franccesco Artuso</ion-label>
-      </ion-item>
-      <div class="ion-padding" slot="content">
-        Desde : DuocUC Plaza Norte<br>
-        Hasta : Mall Plaza de Quilicura<br>
-        Acompañantes : 1 Persona<br>
-        Celular : 963244565<br>
-        <ion-button (click)="presentAlert()" [routerLink]="['/codigo-qr']" >Aceptar Viaje ?</ion-button>
-      </div>
-    </ion-accordion>
-  </ion-accordion-group> -->
+  <div *ngIf="comunaV == buena4">
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header">
+          <ion-label>Nombre: {{nombreV}}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          Desde : {{ Desde}}<br>
+          Hasta : {{comunaV}}<br>
+          Patente : {{patenteV}}<br>
+          Costo : ${{ costoV }}<br>
+          Asientos Dispo: {{ asientoV }}
+          <div *ngIf="punto == 0">
+            <ion-item style="margin-top: 20px;">
+              <ion-label position="floating" value=""  >Asientos <span style="color: red;">*</span></ion-label>
+              <ion-select placeholder="Cantidad de Asientos" value="" [(ngModel)]="Asi">
+                <ion-select-option value="1">1 Asiento</ion-select-option>
+                <ion-select-option value="2">2 Asientos</ion-select-option>
+                <ion-select-option value="3">3 Asientos</ion-select-option>
+                <ion-select-option value="4">4 Asientos</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+          <div *ngIf="punto == 1">
+            <ion-item style="margin-top: 20px;" disabled>
+              <ion-label position="floating" value=""  >Asientos <span style="color: red;">*</span></ion-label>
+              <ion-select placeholder="Cantidad de Asientos" value="" [(ngModel)]="Asi">
+                <ion-select-option value="1">1 Asiento</ion-select-option>
+                <ion-select-option value="2">2 Asientos</ion-select-option>
+                <ion-select-option value="3">3 Asientos</ion-select-option>
+                <ion-select-option value="4">4 Asientos</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+  
+          <div *ngIf="punto == 0">
+            <ion-button (click)="click()">Tomar Viaje</ion-button>
+          </div>
+          <div *ngIf="punto == 1">
+            <ion-button (click)="click()" disabled>Tomar Viaje</ion-button>
+          </div>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+    </div>
+
+  <div *ngIf="comunaV == buena5">
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header">
+          <ion-label>Nombre: {{nombreV}}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          Desde : {{ Desde}}<br>
+          Hasta : {{comunaV}}<br>
+          Patente : {{patenteV}}<br>
+          Costo : ${{ costoV }}<br>
+          Asientos Dispo: {{ asientoV }}
+          <div *ngIf="punto == 0">
+            <ion-item style="margin-top: 20px;">
+              <ion-label position="floating" value=""  >Asientos <span style="color: red;">*</span></ion-label>
+              <ion-select placeholder="Cantidad de Asientos" value="" [(ngModel)]="Asi">
+                <ion-select-option value="1">1 Asiento</ion-select-option>
+                <ion-select-option value="2">2 Asientos</ion-select-option>
+                <ion-select-option value="3">3 Asientos</ion-select-option>
+                <ion-select-option value="4">4 Asientos</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+          <div *ngIf="punto == 1">
+            <ion-item style="margin-top: 20px;" disabled>
+              <ion-label position="floating" value=""  >Asientos <span style="color: red;">*</span></ion-label>
+              <ion-select placeholder="Cantidad de Asientos" value="" [(ngModel)]="Asi">
+                <ion-select-option value="1">1 Asiento</ion-select-option>
+                <ion-select-option value="2">2 Asientos</ion-select-option>
+                <ion-select-option value="3">3 Asientos</ion-select-option>
+                <ion-select-option value="4">4 Asientos</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+  
+          <div *ngIf="punto == 0">
+            <ion-button (click)="click()">Tomar Viaje</ion-button>
+          </div>
+          <div *ngIf="punto == 1">
+            <ion-button (click)="click()" disabled>Tomar Viaje</ion-button>
+          </div>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+    </div>
+
+  <div *ngIf="comunaV == buena6">
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header">
+          <ion-label>Nombre: {{nombreV}}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          Desde : {{ Desde}}<br>
+          Hasta : {{comunaV}}<br>
+          Patente : {{patenteV}}<br>
+          Costo : ${{ costoV }}<br>
+          Asientos Dispo: {{ asientoV }}
+          <div *ngIf="punto == 0">
+            <ion-item style="margin-top: 20px;">
+              <ion-label position="floating" value=""  >Asientos <span style="color: red;">*</span></ion-label>
+              <ion-select placeholder="Cantidad de Asientos" value="" [(ngModel)]="Asi">
+                <ion-select-option value="1">1 Asiento</ion-select-option>
+                <ion-select-option value="2">2 Asientos</ion-select-option>
+                <ion-select-option value="3">3 Asientos</ion-select-option>
+                <ion-select-option value="4">4 Asientos</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+          <div *ngIf="punto == 1">
+            <ion-item style="margin-top: 20px;" disabled>
+              <ion-label position="floating" value=""  >Asientos <span style="color: red;">*</span></ion-label>
+              <ion-select placeholder="Cantidad de Asientos" value="" [(ngModel)]="Asi">
+                <ion-select-option value="1">1 Asiento</ion-select-option>
+                <ion-select-option value="2">2 Asientos</ion-select-option>
+                <ion-select-option value="3">3 Asientos</ion-select-option>
+                <ion-select-option value="4">4 Asientos</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+  
+          <div *ngIf="punto == 0">
+            <ion-button (click)="click()">Tomar Viaje</ion-button>
+          </div>
+          <div *ngIf="punto == 1">
+            <ion-button (click)="click()" disabled>Tomar Viaje</ion-button>
+          </div>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+    </div>
+
+  <div *ngIf="comunaV == buena7">
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header">
+          <ion-label>Nombre: {{nombreV}}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          Desde : {{ Desde}}<br>
+          Hasta : {{comunaV}}<br>
+          Patente : {{patenteV}}<br>
+          Costo : ${{ costoV }}<br>
+          Asientos Dispo: {{ asientoV }}
+          <div *ngIf="punto == 0">
+            <ion-item style="margin-top: 20px;">
+              <ion-label position="floating" value=""  >Asientos <span style="color: red;">*</span></ion-label>
+              <ion-select placeholder="Cantidad de Asientos" value="" [(ngModel)]="Asi">
+                <ion-select-option value="1">1 Asiento</ion-select-option>
+                <ion-select-option value="2">2 Asientos</ion-select-option>
+                <ion-select-option value="3">3 Asientos</ion-select-option>
+                <ion-select-option value="4">4 Asientos</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+          <div *ngIf="punto == 1">
+            <ion-item style="margin-top: 20px;" disabled>
+              <ion-label position="floating" value=""  >Asientos <span style="color: red;">*</span></ion-label>
+              <ion-select placeholder="Cantidad de Asientos" value="" [(ngModel)]="Asi">
+                <ion-select-option value="1">1 Asiento</ion-select-option>
+                <ion-select-option value="2">2 Asientos</ion-select-option>
+                <ion-select-option value="3">3 Asientos</ion-select-option>
+                <ion-select-option value="4">4 Asientos</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+  
+          <div *ngIf="punto == 0">
+            <ion-button (click)="click()">Tomar Viaje</ion-button>
+          </div>
+          <div *ngIf="punto == 1">
+            <ion-button (click)="click()" disabled>Tomar Viaje</ion-button>
+          </div>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+    </div>
+
+  <div *ngIf="comunaV == buena8">
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header">
+          <ion-label>Nombre: {{nombreV}}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          Desde : {{ Desde}}<br>
+          Hasta : {{comunaV}}<br>
+          Patente : {{patenteV}}<br>
+          Costo : ${{ costoV }}<br>
+          Asientos Dispo: {{ asientoV }}
+          <div *ngIf="punto == 0">
+            <ion-item style="margin-top: 20px;">
+              <ion-label position="floating" value=""  >Asientos <span style="color: red;">*</span></ion-label>
+              <ion-select placeholder="Cantidad de Asientos" value="" [(ngModel)]="Asi">
+                <ion-select-option value="1">1 Asiento</ion-select-option>
+                <ion-select-option value="2">2 Asientos</ion-select-option>
+                <ion-select-option value="3">3 Asientos</ion-select-option>
+                <ion-select-option value="4">4 Asientos</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+          <div *ngIf="punto == 1">
+            <ion-item style="margin-top: 20px;" disabled>
+              <ion-label position="floating" value=""  >Asientos <span style="color: red;">*</span></ion-label>
+              <ion-select placeholder="Cantidad de Asientos" value="" [(ngModel)]="Asi">
+                <ion-select-option value="1">1 Asiento</ion-select-option>
+                <ion-select-option value="2">2 Asientos</ion-select-option>
+                <ion-select-option value="3">3 Asientos</ion-select-option>
+                <ion-select-option value="4">4 Asientos</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+  
+          <div *ngIf="punto == 0">
+            <ion-button (click)="click()">Tomar Viaje</ion-button>
+          </div>
+          <div *ngIf="punto == 1">
+            <ion-button (click)="click()" disabled>Tomar Viaje</ion-button>
+          </div>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+    </div>
+
+  <div *ngIf="comunaV == buena9">
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header">
+          <ion-label>Nombre: {{nombreV}}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          Desde : {{ Desde}}<br>
+          Hasta : {{comunaV}}<br>
+          Patente : {{patenteV}}<br>
+          Costo : ${{ costoV }}<br>
+          Asientos Dispo: {{ asientoV }}
+          <div *ngIf="punto == 0">
+            <ion-item style="margin-top: 20px;">
+              <ion-label position="floating" value=""  >Asientos <span style="color: red;">*</span></ion-label>
+              <ion-select placeholder="Cantidad de Asientos" value="" [(ngModel)]="Asi">
+                <ion-select-option value="1">1 Asiento</ion-select-option>
+                <ion-select-option value="2">2 Asientos</ion-select-option>
+                <ion-select-option value="3">3 Asientos</ion-select-option>
+                <ion-select-option value="4">4 Asientos</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+          <div *ngIf="punto == 1">
+            <ion-item style="margin-top: 20px;" disabled>
+              <ion-label position="floating" value=""  >Asientos <span style="color: red;">*</span></ion-label>
+              <ion-select placeholder="Cantidad de Asientos" value="" [(ngModel)]="Asi">
+                <ion-select-option value="1">1 Asiento</ion-select-option>
+                <ion-select-option value="2">2 Asientos</ion-select-option>
+                <ion-select-option value="3">3 Asientos</ion-select-option>
+                <ion-select-option value="4">4 Asientos</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+  
+          <div *ngIf="punto == 0">
+            <ion-button (click)="click()">Tomar Viaje</ion-button>
+          </div>
+          <div *ngIf="punto == 1">
+            <ion-button (click)="click()" disabled>Tomar Viaje</ion-button>
+          </div>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+    </div>
+
+  <div *ngIf="comunaV == buena10">
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header">
+          <ion-label>Nombre: {{nombreV}}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          Desde : {{ Desde}}<br>
+          Hasta : {{comunaV}}<br>
+          Patente : {{patenteV}}<br>
+          Costo : ${{ costoV }}<br>
+          Asientos Dispo: {{ asientoV }}
+          <div *ngIf="punto == 0">
+            <ion-item style="margin-top: 20px;">
+              <ion-label position="floating" value=""  >Asientos <span style="color: red;">*</span></ion-label>
+              <ion-select placeholder="Cantidad de Asientos" value="" [(ngModel)]="Asi">
+                <ion-select-option value="1">1 Asiento</ion-select-option>
+                <ion-select-option value="2">2 Asientos</ion-select-option>
+                <ion-select-option value="3">3 Asientos</ion-select-option>
+                <ion-select-option value="4">4 Asientos</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+          <div *ngIf="punto == 1">
+            <ion-item style="margin-top: 20px;" disabled>
+              <ion-label position="floating" value=""  >Asientos <span style="color: red;">*</span></ion-label>
+              <ion-select placeholder="Cantidad de Asientos" value="" [(ngModel)]="Asi">
+                <ion-select-option value="1">1 Asiento</ion-select-option>
+                <ion-select-option value="2">2 Asientos</ion-select-option>
+                <ion-select-option value="3">3 Asientos</ion-select-option>
+                <ion-select-option value="4">4 Asientos</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+  
+          <div *ngIf="punto == 0">
+            <ion-button (click)="click()">Tomar Viaje</ion-button>
+          </div>
+          <div *ngIf="punto == 1">
+            <ion-button (click)="click()" disabled>Tomar Viaje</ion-button>
+          </div>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+    </div>
+
+  <div *ngIf="comunaV == buena11">
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header">
+          <ion-label>Nombre: {{nombreV}}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          Desde : {{ Desde}}<br>
+          Hasta : {{comunaV}}<br>
+          Patente : {{patenteV}}<br>
+          Costo : ${{ costoV }}<br>
+          Asientos Dispo: {{ asientoV }}
+          <div *ngIf="punto == 0">
+            <ion-item style="margin-top: 20px;">
+              <ion-label position="floating" value=""  >Asientos <span style="color: red;">*</span></ion-label>
+              <ion-select placeholder="Cantidad de Asientos" value="" [(ngModel)]="Asi">
+                <ion-select-option value="1">1 Asiento</ion-select-option>
+                <ion-select-option value="2">2 Asientos</ion-select-option>
+                <ion-select-option value="3">3 Asientos</ion-select-option>
+                <ion-select-option value="4">4 Asientos</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+          <div *ngIf="punto == 1">
+            <ion-item style="margin-top: 20px;" disabled>
+              <ion-label position="floating" value=""  >Asientos <span style="color: red;">*</span></ion-label>
+              <ion-select placeholder="Cantidad de Asientos" value="" [(ngModel)]="Asi">
+                <ion-select-option value="1">1 Asiento</ion-select-option>
+                <ion-select-option value="2">2 Asientos</ion-select-option>
+                <ion-select-option value="3">3 Asientos</ion-select-option>
+                <ion-select-option value="4">4 Asientos</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+  
+          <div *ngIf="punto == 0">
+            <ion-button (click)="click()">Tomar Viaje</ion-button>
+          </div>
+          <div *ngIf="punto == 1">
+            <ion-button (click)="click()" disabled>Tomar Viaje</ion-button>
+          </div>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+    </div>
+
+  <div *ngIf="comunaV == buena12">
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header">
+          <ion-label>Nombre: {{nombreV}}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          Desde : {{ Desde}}<br>
+          Hasta : {{comunaV}}<br>
+          Patente : {{patenteV}}<br>
+          Costo : ${{ costoV }}<br>
+          Asientos Dispo: {{ asientoV }}
+          <div *ngIf="punto == 0">
+            <ion-item style="margin-top: 20px;">
+              <ion-label position="floating" value=""  >Asientos <span style="color: red;">*</span></ion-label>
+              <ion-select placeholder="Cantidad de Asientos" value="" [(ngModel)]="Asi">
+                <ion-select-option value="1">1 Asiento</ion-select-option>
+                <ion-select-option value="2">2 Asientos</ion-select-option>
+                <ion-select-option value="3">3 Asientos</ion-select-option>
+                <ion-select-option value="4">4 Asientos</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+          <div *ngIf="punto == 1">
+            <ion-item style="margin-top: 20px;" disabled>
+              <ion-label position="floating" value=""  >Asientos <span style="color: red;">*</span></ion-label>
+              <ion-select placeholder="Cantidad de Asientos" value="" [(ngModel)]="Asi">
+                <ion-select-option value="1">1 Asiento</ion-select-option>
+                <ion-select-option value="2">2 Asientos</ion-select-option>
+                <ion-select-option value="3">3 Asientos</ion-select-option>
+                <ion-select-option value="4">4 Asientos</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+  
+          <div *ngIf="punto == 0">
+            <ion-button (click)="click()">Tomar Viaje</ion-button>
+          </div>
+          <div *ngIf="punto == 1">
+            <ion-button (click)="click()" disabled>Tomar Viaje</ion-button>
+          </div>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+    </div>
+
+  <div *ngIf="comunaV == buena13">
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header">
+          <ion-label>Nombre: {{nombreV}}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          Desde : {{ Desde}}<br>
+          Hasta : {{comunaV}}<br>
+          Patente : {{patenteV}}<br>
+          Costo : ${{ costoV }}<br>
+          Asientos Dispo: {{ asientoV }}
+          <div *ngIf="punto == 0">
+            <ion-item style="margin-top: 20px;">
+              <ion-label position="floating" value=""  >Asientos <span style="color: red;">*</span></ion-label>
+              <ion-select placeholder="Cantidad de Asientos" value="" [(ngModel)]="Asi">
+                <ion-select-option value="1">1 Asiento</ion-select-option>
+                <ion-select-option value="2">2 Asientos</ion-select-option>
+                <ion-select-option value="3">3 Asientos</ion-select-option>
+                <ion-select-option value="4">4 Asientos</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+          <div *ngIf="punto == 1">
+            <ion-item style="margin-top: 20px;" disabled>
+              <ion-label position="floating" value=""  >Asientos <span style="color: red;">*</span></ion-label>
+              <ion-select placeholder="Cantidad de Asientos" value="" [(ngModel)]="Asi">
+                <ion-select-option value="1">1 Asiento</ion-select-option>
+                <ion-select-option value="2">2 Asientos</ion-select-option>
+                <ion-select-option value="3">3 Asientos</ion-select-option>
+                <ion-select-option value="4">4 Asientos</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+  
+          <div *ngIf="punto == 0">
+            <ion-button (click)="click()">Tomar Viaje</ion-button>
+          </div>
+          <div *ngIf="punto == 1">
+            <ion-button (click)="click()" disabled>Tomar Viaje</ion-button>
+          </div>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+    </div>
+
+  <div *ngIf="comunaV == buena14">
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header">
+          <ion-label>Nombre: {{nombreV}}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          Desde : {{ Desde}}<br>
+          Hasta : {{comunaV}}<br>
+          Patente : {{patenteV}}<br>
+          Costo : ${{ costoV }}<br>
+          Asientos Dispo: {{ asientoV }}
+          <div *ngIf="punto == 0">
+            <ion-item style="margin-top: 20px;">
+              <ion-label position="floating" value=""  >Asientos <span style="color: red;">*</span></ion-label>
+              <ion-select placeholder="Cantidad de Asientos" value="" [(ngModel)]="Asi">
+                <ion-select-option value="1">1 Asiento</ion-select-option>
+                <ion-select-option value="2">2 Asientos</ion-select-option>
+                <ion-select-option value="3">3 Asientos</ion-select-option>
+                <ion-select-option value="4">4 Asientos</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+          <div *ngIf="punto == 1">
+            <ion-item style="margin-top: 20px;" disabled>
+              <ion-label position="floating" value=""  >Asientos <span style="color: red;">*</span></ion-label>
+              <ion-select placeholder="Cantidad de Asientos" value="" [(ngModel)]="Asi">
+                <ion-select-option value="1">1 Asiento</ion-select-option>
+                <ion-select-option value="2">2 Asientos</ion-select-option>
+                <ion-select-option value="3">3 Asientos</ion-select-option>
+                <ion-select-option value="4">4 Asientos</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+  
+          <div *ngIf="punto == 0">
+            <ion-button (click)="click()">Tomar Viaje</ion-button>
+          </div>
+          <div *ngIf="punto == 1">
+            <ion-button (click)="click()" disabled>Tomar Viaje</ion-button>
+          </div>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+    </div>
+
+  <div *ngIf="comunaV == buena15">
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header">
+          <ion-label>Nombre: {{nombreV}}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          Desde : {{ Desde}}<br>
+          Hasta : {{comunaV}}<br>
+          Patente : {{patenteV}}<br>
+          Costo : ${{ costoV }}<br>
+          Asientos Dispo: {{ asientoV }}
+          <div *ngIf="punto == 0">
+            <ion-item style="margin-top: 20px;">
+              <ion-label position="floating" value=""  >Asientos <span style="color: red;">*</span></ion-label>
+              <ion-select placeholder="Cantidad de Asientos" value="" [(ngModel)]="Asi">
+                <ion-select-option value="1">1 Asiento</ion-select-option>
+                <ion-select-option value="2">2 Asientos</ion-select-option>
+                <ion-select-option value="3">3 Asientos</ion-select-option>
+                <ion-select-option value="4">4 Asientos</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+          <div *ngIf="punto == 1">
+            <ion-item style="margin-top: 20px;" disabled>
+              <ion-label position="floating" value=""  >Asientos <span style="color: red;">*</span></ion-label>
+              <ion-select placeholder="Cantidad de Asientos" value="" [(ngModel)]="Asi">
+                <ion-select-option value="1">1 Asiento</ion-select-option>
+                <ion-select-option value="2">2 Asientos</ion-select-option>
+                <ion-select-option value="3">3 Asientos</ion-select-option>
+                <ion-select-option value="4">4 Asientos</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+  
+          <div *ngIf="punto == 0">
+            <ion-button (click)="click()">Tomar Viaje</ion-button>
+          </div>
+          <div *ngIf="punto == 1">
+            <ion-button (click)="click()" disabled>Tomar Viaje</ion-button>
+          </div>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+    </div>
+
 </ion-content>
 
 <mat-paginator [length]="100"

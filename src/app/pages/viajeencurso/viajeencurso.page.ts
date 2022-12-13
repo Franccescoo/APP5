@@ -27,6 +27,7 @@ export class ViajeencursoPage implements OnInit {
   c = null;
   d = null;
   e = null;
+  f = null;
   nombreTomado='';
   constructor(private bd: DbservicioService,public nativeStorage: NativeStorage,private alertController: AlertController,private route:Router) { 
 
@@ -117,11 +118,13 @@ export class ViajeencursoPage implements OnInit {
     this.nativeStorage.setItem('comunaViaje',this.c);
     this.nativeStorage.setItem('costoViaje', this.d);
     this.nativeStorage.setItem('asientos', this.e);
+    this.nativeStorage.setItem('ClientesToma', this.f);
     this.presentAlert2();
     this.route.navigate(['/inicio-conductor']);
   }
 
   CancelarV(){
+    this.nativeStorage.setItem('ClientesToma', this.f);
     this.presentAlert1();
     this.route.navigate(['/ver-viaje-conductor']);
   }

@@ -28,6 +28,7 @@ export class VerViajecPage implements OnInit {
   c = null;
   d = null;
   e = null;
+  f = null;
 
   Auto: any[] = []
 
@@ -164,6 +165,7 @@ export class VerViajecPage implements OnInit {
     this.nativeStorage.setItem('comunaViaje',this.c);
     this.nativeStorage.setItem('costoViaje', this.d);
     this.nativeStorage.setItem('asientos', this.e);
+    this.nativeStorage.setItem('ClientesToma', this.f);
     this.presentAlert2();
     this.router.navigate(['/inicio-cliente']);
   }
