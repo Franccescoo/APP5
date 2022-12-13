@@ -12,9 +12,20 @@ import { DbservicioService } from 'src/app/services/dbservicio.service';
 export class SolicitudViajePage implements OnInit {
 
   buena = 'Quilicura';
-  buena2 = 'Las Condes'
-  buena3 = 'Independencia'
-
+  buena2 = 'Las Condes';
+  buena3 = 'Independencia';
+  buena4 = 'Bosque';
+  buena5 = 'Estación Central';
+  buena6 = 'Cerrillos';
+  buena7 = 'Navia';
+  buena8 = 'Conchalí';
+  buena9 = 'Huechuraba';
+  buena10 = 'La Cisterna';
+  buena11 = 'La Florida';
+  buena12 = 'La Pintana';
+  buena13 = 'Lo Espejo';
+  buena14 = 'Maipú';
+  buena15 = 'Providencia';
   Desde= 'Mall Plaza Norte';
   nombreV='';
   patenteV='';
